@@ -25,7 +25,6 @@ public class GeneratePageServlet extends HttpServlet{
 		System.out.println("1");
 		response.sendRedirect("/javawork/index/index.jsp"); 
 		
-		
 	}
 	
 }

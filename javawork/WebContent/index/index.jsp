@@ -199,11 +199,13 @@
 							<%
 								List<SellGoods> sGoods = SellGoodsService.get();
 							%>
-							<a href="#"><div class="content_item_warp">
-								<img class="item_img" src=<% out.print(" ' " +sGoods.get(0).getImgUrl() + " ' "); %>/>
-								<div class="item_title"><%out.print(sGoods.get(0).getName());%></div>
-								<div class="item_price">￥<% out.print(sGoods.get(0).getPrice()); %></div>
-							</div></a>
+							<a href="/javawork/ToPageServlet?index=0">
+								<div class="content_item_warp">
+									<img class="item_img" src=<% out.print(" ' " +sGoods.get(0).getImgUrl() + " ' "); %>/>
+									<div class="item_title"><%out.print(sGoods.get(0).getName());%></div>
+									<div class="item_price">￥<% out.print(sGoods.get(0).getPrice()); %></div>
+								</div>
+							</a>
 							<div class="content_item_warp">
 								<img class="item_img" src=<% out.print(" ' " +sGoods.get(1).getImgUrl() + " ' "); %>/>
 								<div class="item_title"><%out.print(sGoods.get(1).getName());%></div>
@@ -329,6 +331,7 @@
                     prevEl: '.swiper-button-prev',
                 }
            })
+			
 		</script>
 </body>
 </html>
