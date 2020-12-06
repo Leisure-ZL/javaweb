@@ -1,0 +1,55 @@
+.header{
+	/*background-color: paleturquoise;*/
+	padding: 22px 0;
+    height: 88px;
+    
+}
+.middle{
+	width: 100% ;
+	background-color:#fad6ca ;
+}
+.middleBk{
+	height:600px;
+	width:1190px;
+	background-color:pink ;	
+	background-image: url(https://img.alicdn.com/tfs/TB104dYsLzO3e4jSZFxXXaP_FXa-1190-600.png); 
+	margin: 0 auto;
+}
+
+.foot{
+	background-color: paleturquoise;
+	padding: 22px 0;
+	align-content: center;
+	color: #7f7f7f;   
+}
+.formWindow{
+	width: 354px;
+	height: 380px;
+	background-color: white; 
+	position:relative;
+	left:750px;
+	top:80px
+}
+.form_button{
+	background-color: #f40;
+	width: 300px;
+	height: 42px;
+	color: white;
+	align-content: center;
+	margin-top: 20px;
+	margin-left: 10px;
+	}
+.form{
+	width: 350px;
+	height: 350px;
+	/*background-color: lightpink;*/
+}
+.form_input{
+	background-color:white;
+	margin-top: 20px;
+	margin-left: 10px;
+	width: 300px;
+	height: 42px;
+	
+}
+
