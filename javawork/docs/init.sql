@@ -1,0 +1,50 @@
+//创建数据库
+CREATE DATABASE javawork;
+//创建buyer表
+CREATE TABLE IF NOT EXISTS `buyer` (
+	`id` INT UNSIGNED AUTO_INCREMENT,
+	`name` VARCHAR(20) NOT NULL,
+	`userName` VARCHAR(40) NOT NULL,
+	`password` VARCHAR(40) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+//创建seller表
+CREATE TABLE IF NOT EXISTS `seller` (
+	`id` INT UNSIGNED AUTO_INCREMENT,
+	`name` VARCHAR(20) NOT NULL,
+	`userName` VARCHAR(40) NOT NULL,
+	`password` VARCHAR(40) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+//创建buyGoods表
+CREATE TABLE IF NOT EXISTS `buyGoods` (
+	`id` INT UNSIGNED AUTO_INCREMENT,
+	`buyerId` INT UNSIGNED NOT NULL,
+	`name` VARCHAR(20) NOT NULL,
+	`imgUrl` VARCHAR(80) NOT NULL,
+	`dscp` VARCHAR(200) NOT NULL,
+	`price` FLOAT NOT NULL,
+	`count` INT NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+//创建sellGoods表
+CREATE TABLE IF NOT EXISTS `sellGoods` (
+	`id` INT UNSIGNED AUTO_INCREMENT,
+	`sellerId` INT UNSIGNED NOT NULL,
+	`name` VARCHAR(20) NOT NULL,
+	`imgUrl` VARCHAR(80) NOT NULL,
+	`dscp` VARCHAR(200) NOT NULL,
+	`price` FLOAT NOT NULL,
+	`count` INT NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+//插入buyer
+INSERT INTO buyer(name,userName,password)VALUES('buyer1','buyer1','123456');
+
+//插入seller
+INSERT INTO seller(name,userName,password)VALUES('seller1','seller1','123456');
+
+
+
+
