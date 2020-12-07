@@ -46,7 +46,7 @@ public class SellGoodsService {
 	}
 	
 	//从数据库获取全部sellgood表，逆序返回
-	public static List<SellGoods> get() throws SQLException, ClassNotFoundException, IOException {
+	public static List<SellGoods> getAll() throws SQLException, ClassNotFoundException, IOException {
 		String sql = "select * from sellgoods;";
 		List<SellGoods> sGoods = new ArrayList<SellGoods>();
 		Connection conn = DBUtils.getConnection();
@@ -65,9 +65,24 @@ public class SellGoodsService {
 	    	sGoods.add(sGood);
 	    }
 	    Collections.reverse(sGoods);
-	    return sGoods;
-	    
-	    
+	    return sGoods;    
+	}
+	//执行特定sql语句返回一个sGood对象
+	public static SellGoods get(String sql) throws ClassNotFoundException, SQLException {
+		Connection conn = DBUtils.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		SellGoods sGood = new SellGoods();
+		while(rs.next()) {
+	    	sGood.setId(rs.getInt("id"));
+	    	sGood.setSellerId(rs.getInt("sellerId"));
+	    	sGood.setName(rs.getString("name"));
+	    	sGood.setImgUrl(rs.getString("imgUrl"));
+	    	sGood.setDscp(rs.getString("dscp"));
+	    	sGood.setPrice(rs.getInt("price"));
+	    	sGood.setCount(rs.getInt("count"));
+	    }
+		return sGood;
 	}
 	
 }

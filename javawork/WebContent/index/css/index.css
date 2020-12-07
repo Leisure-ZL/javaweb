@@ -62,11 +62,12 @@
 }
 #search_box input{
 	float: left;
-	margin-top: 45px;
+	margin-top: 44px;
+	color: #666;
 }
 #search_btn{
 	width: 120px;
-	height: 39px;
+	height: 40px;
 	font-size: 18px;
     font-weight: 700;
     letter-spacing: 5px;
@@ -138,158 +139,11 @@
 	text-align: center;
 	cursor: pointer;
 }
-.pannel_display{
-	width: 852px;
-	height: 500px;
-	float: left;
-	position: absolute;
-	left: 345px;
-	display: none;
-	z-index: 9999;
-	background-color: #FFFFFF;
-}
-.hot_word_con{
-	float: left;
-	width: 583px;
-	height: 462px;
-	margin: 19px 30px;
-	overflow: hidden;
-	background-color: #fff;
-}
-.title{
-	width: 70px;
-	color: #333;
-	margin-right: 10px;
-	position: relative;
-	font-size: 14px;
-	font-weight: 700;
-	line-height: 22px;
-	height: 22px;
-	float: left;
-}
-.line_con{
-	width: 490px;
-	float: left;
-	margin-bottom:20px ;
-}
-.line_con a{
-	height: 22px;
-	line-height: 22px;
-	font-size: 14px;
-	float: left;
-	margin-left: 13px;
-}
-.logo_con{
-	float: left;
-	background-color: #FAFAFA;
-	width: 189px;
-	padding: 10px;
-	height: 480px;
-}
 #slideshow{
 	width: 100%;
 	height: 500px;
 }
-#import{
-	width: 1230px;
-	height: 329px;
-	margin-top: 30px;
-	margin-left: 145px;
-}
-#import #new_find{
-	display: block;
-	margin: 0 auto 20px;
-	width: 600px;
-	height: 40px;
-}
-#import .import_item{
-	width: 238px;
-	transition: opacity .3s ease-out;
-	
-}
-#import .import_item:hover{
-	opacity: 0.7;
-}
-.brandWall{
-	margin-left:145px ;
-	height: 370px;
-	padding-top: 24px;
-	width: 1300px;
-	padding-right: 20px;
-}
-.brandWall_item{
-	float: left;
-	display: block;
-	width: 485px;
-	height: 370px;
-	margin-right: 9px;
-	background-color: #fff;
-}
-.brandWall_item_head{
-	height: 54px;
-	background: #fff;
-	font-size: 0;
-	border-style: solid;
-	border-width: 0 0 1px;
-	border-color: #eee;
-}
-.brandWall_item img{
-	height: 316px;
-}
-.brandWall_item img:hover{
-		opacity: 0.7;
-}
-.brandWall_item.first{
-	width: 234px;
-}
-.brandWall_item_head .cn{
-	display: inline-block;
-	font-size: 18px;
-	font-weight: 700;
-	color: #333;
-	line-height: 54px;
-	height: 18px;
-	margin-left: 10px;
-}
-.brandWall_item_head .en{
-	display: inline-block;
-	font-size: 14px;
-	font-weight: 700;
-	color: #333;
-	margin-left: 10px;
-	line-height: 24px;
-	height: 44px;
-}
-.brand_list{
-	margin-top: 15px;
-	margin-left: 145px;
-	width: 1230px;
-	padding-right: 30px;
-	height: 327px;
-	overflow: hidden;
-}
-.brand_list ul{
-	list-style: none;
-	display: flex;
-}
-.brand_list li{
-	width: 122px;
-	height: 108px;
-	text-align: center;
-	line-height: 108px;
-	flex-direction: column;
-	justify-content: center;
-	margin-right: 1px;
-	margin-bottom: 1px;
-	background-color: #FFFFFF;
-	opacity: 1;
-	cursor: pointer;
-}
-.brand_list li img{
-	width: 82%;
-	height: 50px;
-	vertical-align: middle;
-}
+
 .mark{
 	margin-top: 20px;
 	width: 1320px;
@@ -426,67 +280,6 @@
 	line-height: 18px;
 	margin: 10px auto;
 }
-.HK{
-	width: 1250px;
-	height: 665px;
-	margin: 20px 0 0 145px;
-}
-.content_item_warp.first,.content_item_warp.last{
-	margin-left: 0;
-	position: relative;
-}
-.item_img.first,.item_img.last{
-	width: 235px;
-	height: 300px
-}
-.item_con{
-	height: 618px;
-}
-.color_mark{
-	display: inline-block;
-	background-color: #333;
-	width: 5px;
-	height: 18px;
-	vertical-align: middle;
-}
-.item_name_title{
-	width: 300px;
-	height: 27px;
-}
-.item_name_title_en{
-	display: inline-block;
-	font-size: 14px;
-	color: #000;
-	margin-left: 10px;
-	line-height: 24px;
-	height: 18px;
-}
-.beauty{
-	width: 1250px;
-	height: 665px;
-	margin-left: 145px;
-}
-.electronics,.grocery,.home,.outdoors{
-	width: 1250px;
-	height: 665px;
-	margin-left: 145px;
-	margin-top: 20px;
-}
-.guesslike{
-	width: 1250px;
-	height: 1400px;
-	margin-left: 130px;
-}
-.guess_title{
-	color: #666;
-	text-align: center;
-	height: 43px;
-	font-weight: 100;
-	margin-top: 20px;
-}
-.guess_ul{
-	list-style: none;
-}
 .footer{
 	border-top: 1px solid #D1D7DC;
 	width: 100%;
@@ -500,7 +293,6 @@
 	margin: 0 auto;
 	border-bottom: 1px solid #f1f1f1;
 }
-
 .tmall_sure a{
 	float: left;
 	display: block;

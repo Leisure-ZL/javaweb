@@ -23,7 +23,7 @@
 			<div id="top_user">
 				<div id="top_container">
 					<ul id="top_ul_left">
-						<li><em>喵~欢迎来到地猫</em></li>
+						<li><em>喵~欢迎来到地猫</em></li><!-- 读取session获取用户信息 -->
 						<li><a>请登录</a></li>
 						<li><a>免费注册</a></li>
 					</ul>
@@ -44,7 +44,7 @@
 					<img src="img/logo.gif" />
 				</div>
 				<div id="search_box">
-					<form>
+					<form action="/javawork/SearchServlet" method="get">
 						<input type="text" value="搜索 地猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
@@ -197,40 +197,51 @@
 								</div>
 							</div>
 							<%
-								List<SellGoods> sGoods = SellGoodsService.get();
+								List<SellGoods> sGoods = SellGoodsService.getAll();
+
 							%>
-							<a href="/javawork/ToPageServlet?index=0">
+							<a href="/javawork/buy-page/buy.jsp?index=0">
 								<div class="content_item_warp">
 									<img class="item_img" src=<% out.print(" ' " +sGoods.get(0).getImgUrl() + " ' "); %>/>
 									<div class="item_title"><%out.print(sGoods.get(0).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(0).getPrice()); %></div>
 								</div>
 							</a>
-							<div class="content_item_warp">
-								<img class="item_img" src=<% out.print(" ' " +sGoods.get(1).getImgUrl() + " ' "); %>/>
-								<div class="item_title"><%out.print(sGoods.get(1).getName());%></div>
-								<div class="item_price">￥<% out.print(sGoods.get(1).getPrice()); %></div>
-							</div>
-							<div class="content_item_warp">
-								<img class="item_img" src=<% out.print(" ' " +sGoods.get(2).getImgUrl() + " ' "); %>/>
-								<div class="item_title"><%out.print(sGoods.get(2).getName());%></div>
-								<div class="item_price">￥<% out.print(sGoods.get(2).getPrice()); %></div>
-							</div>
-							<div class="content_item_warp">
-								<img class="item_img" src=<% out.print(" ' " +sGoods.get(3).getImgUrl() + " ' "); %>/>
-								<div class="item_title"><%out.print(sGoods.get(3).getName());%></div>
-								<div class="item_price">￥<% out.print(sGoods.get(3).getPrice()); %></div>
-							</div>
-							<div class="content_item_warp">
-								<img class="item_img" src=<% out.print(" ' " +sGoods.get(4).getImgUrl() + " ' "); %>/>
-								<div class="item_title"><%out.print(sGoods.get(4).getName());%></div>
-								<div class="item_price">￥<% out.print(sGoods.get(4).getPrice()); %></div>
-							</div>
-							<div class="content_item_warp">
-								<img class="item_img" src=<% out.print(" ' " +sGoods.get(5).getImgUrl() + " ' "); %>/>
-								<div class="item_title"><%out.print(sGoods.get(5).getName());%></div>
-								<div class="item_price">￥<% out.print(sGoods.get(5).getPrice()); %></div>
-							</div>
+							<a href="/javawork/buy-page/buy.jsp?index=1">
+								<div class="content_item_warp">
+									<img class="item_img" src=<% out.print(" ' " +sGoods.get(1).getImgUrl() + " ' "); %>/>
+									<div class="item_title"><%out.print(sGoods.get(1).getName());%></div>
+									<div class="item_price">￥<% out.print(sGoods.get(1).getPrice()); %></div>
+								</div>
+							</a>
+							<a href="/javawork/buy-page/buy.jsp?index=2">
+								<div class="content_item_warp">
+									<img class="item_img" src=<% out.print(" ' " +sGoods.get(2).getImgUrl() + " ' "); %>/>
+									<div class="item_title"><%out.print(sGoods.get(2).getName());%></div>
+									<div class="item_price">￥<% out.print(sGoods.get(2).getPrice()); %></div>
+								</div>
+							</a>
+							<a href="/javawork/buy-page/buy.jsp?index=3">
+								<div class="content_item_warp">
+									<img class="item_img" src=<% out.print(" ' " +sGoods.get(3).getImgUrl() + " ' "); %>/>
+									<div class="item_title"><%out.print(sGoods.get(3).getName());%></div>
+									<div class="item_price">￥<% out.print(sGoods.get(3).getPrice()); %></div>
+								</div>
+							</a>
+							<a href="/javawork/buy-page/buy.jsp?index=4">
+								<div class="content_item_warp">
+									<img class="item_img" src=<% out.print(" ' " +sGoods.get(4).getImgUrl() + " ' "); %>/>
+									<div class="item_title"><%out.print(sGoods.get(4).getName());%></div>
+									<div class="item_price">￥<% out.print(sGoods.get(4).getPrice()); %></div>
+								</div>
+							</a>
+							<a href="/javawork/buy-page/buy.jsp?index=5">
+								<div class="content_item_warp">
+									<img class="item_img" src=<% out.print(" ' " +sGoods.get(5).getImgUrl() + " ' "); %>/>
+									<div class="item_title"><%out.print(sGoods.get(5).getName());%></div>
+									<div class="item_price">￥<% out.print(sGoods.get(5).getPrice()); %></div>
+								</div>
+							</a>
 						</div>
 					</div>
 				</div>

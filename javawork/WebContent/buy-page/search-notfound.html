@@ -1,8 +1,3 @@
-<%@page import="java.util.*" %>
-<%@page import="cn.edu.swu.zl.goods.SellGoodsService"%>
-<%@page import="cn.edu.swu.zl.goods.SellGoods"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,41 +37,8 @@
 					</form>
 				</div>
 			</div>
-			<div id="content">
-			<%
-				SellGoods sGood = null;
-				if(session.getAttribute("searchSGood") != null){//如果是从SearchServlet来访问的，取session中对象从新赋给sGood
-					sGood = (SellGoods)session.getAttribute("searchSGood");
-					if(sGood.getName() == null){
-						response.sendRedirect("/javawork/buy-page/search-notfound.html");
-					}
-					
-				}else{//否则通过index传递参数访问，从数据库中取
-					List<SellGoods> sGoods = SellGoodsService.getAll();
-					String indexStr = request.getParameter("index");
-					int index = Integer.parseInt(indexStr);
-					sGood = sGoods.get(index);
-				}
-				
-			%>
-				<div id="goods-box">
-					<div id="goods-left">
-						<img src=src=<% out.print(" ' " + sGood.getImgUrl() + " ' "); %>>
-					</div>
-					<div id="goods-right">
-						<div id="goods-name"><h1><% out.print(sGood.getName()); %></h1></div>
-						<div id="goods-price">
-							<div id="price-left">价格：</div>
-							<div id="price-right">¥<% out.print(sGood.getPrice()); %></div></div>
-						<div id="goods-dscp"><% out.print(sGood.getDscp()); %></div>
-						<div id="goods-count">
-							<div id="count-left">库存:</div>
-							<div id="count-right"><% out.print(sGood.getCount()); %></div>
-						</div>
-						<a href="#" id="goods-btn-a"><div id="goods-btn">加入购物车</div></a>
-					</div>
-				</div>
-				
+			<div id="content" style="height:100px">
+				<h1>哎呀！找不到此商品</h1>
 			</div>
 			<div class="footer">
 				<div class="tmall_sure">
@@ -127,15 +89,6 @@
 				</div>
 				<div class="copyright"></div>
 			</div>
-		</div>
+
 </body>
-<script>
-		var btn = document.getElementById("goods-btn");
-		
-		btn.onclick = function(){
-			alert("加入成功！");
-			
-		}
-		
-	</script>
 </html>

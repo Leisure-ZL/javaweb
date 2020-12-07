@@ -12,12 +12,12 @@
      Welcome to Tomcat
   </description>
   <servlet>
-  	<servlet-name>toPage</servlet-name>
-  	<servlet-class>cn.edu.swu.zl.index.ToPageServlet</servlet-class>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<servlet-class>cn.edu.swu.zl.index.SearchServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>toPage</servlet-name>
-  	<url-pattern>/ToPageServlet</url-pattern>
+  	<servlet-name>SearchServlet</servlet-name>
+  	<url-pattern>/SearchServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
