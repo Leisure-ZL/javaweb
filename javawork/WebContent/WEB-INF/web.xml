@@ -7,10 +7,6 @@
   version="4.0"
   metadata-complete="true">
 
-  <display-name>Welcome to Tomcat</display-name>
-  <description>
-     Welcome to Tomcat
-  </description>
   <servlet>
   	<servlet-name>SearchServlet</servlet-name>
   	<servlet-class>cn.edu.swu.zl.index.SearchServlet</servlet-class>
@@ -18,6 +14,15 @@
   <servlet-mapping>
   	<servlet-name>SearchServlet</servlet-name>
   	<url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>CartServlet</servlet-name>
+  	<servlet-class>cn.edu.swu.zl.buyer.CartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CartServlet</servlet-name>
+  	<url-pattern>/CartServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

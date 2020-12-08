@@ -13,6 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Dmail jsp</title>
+	<link rel="stylesheet" type="text/css" href="../frame/frame.css" />
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="Swiper/swiper-bundle.css">
 	<script src="js/index.js"></script>
@@ -29,7 +30,7 @@
 					</ul>
 					<ul class="top_ul">
 						<li>我的淘宝</li>
-						<li>购物车</li>
+						<a href="/javawork/buy/cart.jsp"><li>购物车</li></a>
 						<li>收藏夹</li>
 					</ul>
 					<ul class="top_ul">
@@ -41,7 +42,7 @@
 			</div>
 			<div id="header">
 				<div id="logo">
-					<img src="img/logo.gif" />
+					<img src="../frame/img/logo.gif" />
 				</div>
 				<div id="search_box">
 					<form action="/javawork/SearchServlet" method="get">
@@ -200,42 +201,45 @@
 								List<SellGoods> sGoods = SellGoodsService.getAll();
 
 							%>
-							<a href="/javawork/buy-page/buy.jsp?index=0">
+							<!--
+                            	
+                            -->
+							<a href="/javawork/buy/buy.jsp?index=0">
 								<div class="content_item_warp">
-									<img class="item_img" src=<% out.print(" ' " +sGoods.get(0).getImgUrl() + " ' "); %>/>
+									<img class="item_img" src=<% out.print("'../img/goods/" +sGoods.get(0).getImgUrl().toString() + "'"); %>>
 									<div class="item_title"><%out.print(sGoods.get(0).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(0).getPrice()); %></div>
 								</div>
 							</a>
-							<a href="/javawork/buy-page/buy.jsp?index=1">
+							<a href="/javawork/buy/buy.jsp?index=1">
 								<div class="content_item_warp">
 									<img class="item_img" src=<% out.print(" ' " +sGoods.get(1).getImgUrl() + " ' "); %>/>
 									<div class="item_title"><%out.print(sGoods.get(1).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(1).getPrice()); %></div>
 								</div>
 							</a>
-							<a href="/javawork/buy-page/buy.jsp?index=2">
+							<a href="/javawork/buy/buy.jsp?index=2">
 								<div class="content_item_warp">
 									<img class="item_img" src=<% out.print(" ' " +sGoods.get(2).getImgUrl() + " ' "); %>/>
 									<div class="item_title"><%out.print(sGoods.get(2).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(2).getPrice()); %></div>
 								</div>
 							</a>
-							<a href="/javawork/buy-page/buy.jsp?index=3">
+							<a href="/javawork/buy/buy.jsp?index=3">
 								<div class="content_item_warp">
 									<img class="item_img" src=<% out.print(" ' " +sGoods.get(3).getImgUrl() + " ' "); %>/>
 									<div class="item_title"><%out.print(sGoods.get(3).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(3).getPrice()); %></div>
 								</div>
 							</a>
-							<a href="/javawork/buy-page/buy.jsp?index=4">
+							<a href="/javawork/buy/buy.jsp?index=4">
 								<div class="content_item_warp">
 									<img class="item_img" src=<% out.print(" ' " +sGoods.get(4).getImgUrl() + " ' "); %>/>
 									<div class="item_title"><%out.print(sGoods.get(4).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(4).getPrice()); %></div>
 								</div>
 							</a>
-							<a href="/javawork/buy-page/buy.jsp?index=5">
+							<a href="/javawork/buy/buy.jsp?index=5">
 								<div class="content_item_warp">
 									<img class="item_img" src=<% out.print(" ' " +sGoods.get(5).getImgUrl() + " ' "); %>/>
 									<div class="item_title"><%out.print(sGoods.get(5).getName());%></div>

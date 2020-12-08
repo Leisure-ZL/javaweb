@@ -1,0 +1,58 @@
+package cn.edu.swu.zl.goods;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import cn.edu.swu.zl.util.DBUtils;
+
+public class BuyGoodsService {
+	
+		//添加bGood到数据库
+		public static void add(BuyGoods bGood) throws ClassNotFoundException, SQLException, IOException {
+			
+			String sql = "INSERT INTO buyGoods(buyerId,name,imgUrl,dscp,price,count)VALUES"
+					+ "(?,?,?,?,?,?);";
+			Connection conn = DBUtils.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bGood.getbuyerId());
+			pstmt.setString(2, bGood.getName());
+			pstmt.setString(3, bGood.getImgUrl());
+			pstmt.setString(4, bGood.getDscp());
+			pstmt.setFloat(5, bGood.getPrice());
+			pstmt.setInt(6, bGood.getCount());
+			pstmt.executeUpdate();
+			conn.close();
+			pstmt.close();
+		}
+		
+		//通过buyerId从数据库获取全部bGood
+		public static List<BuyGoods> getAllById(int id) throws SQLException, ClassNotFoundException, IOException {
+			String sql = "select * from buygoods where buyerId='" + id + "';";
+			List<BuyGoods> bGoods = new ArrayList<BuyGoods>();
+			Connection conn = DBUtils.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+		    while(rs.next()) {
+		    	BuyGoods bGood = new BuyGoods();
+		    	bGood.setbuyerId(rs.getInt("buyerId"));
+		    	bGood.setName(rs.getString("name"));
+		    	bGood.setImgUrl(rs.getString("imgUrl"));
+		    	bGood.setDscp(rs.getString("dscp"));
+		    	bGood.setPrice(rs.getInt("price"));
+		    	bGood.setCount(rs.getInt("count"));
+		    	bGoods.add(bGood);
+		    }
+		    Collections.reverse(bGoods);
+		    return bGoods;    
+		}
+		
+	
+}

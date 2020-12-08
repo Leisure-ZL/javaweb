@@ -1,12 +1,7 @@
 package cn.edu.swu.zl.goods;
 
 import java.util.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,36 +9,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javax.management.loading.PrivateClassLoader;
-
-import com.mysql.cj.exceptions.UnsupportedConnectionStringException;
-
 import cn.edu.swu.zl.util.DBUtils;
 
 public class SellGoodsService {
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
-		
+		add();
 	}
 	
-	//添加sellgood到数据库
-	public static void add() throws ClassNotFoundException, SQLException, IOException {
-		
-		String path = "C:\\Users\\86182\\Desktop\\javawork\\index\\img\\mark\\4.jpg";
-		String sql = "INSERT INTO sellGoods(sellerId,name,imgUrl,dscp,price,count)VALUES"
-				+ "(?,?,?,?,?,?);";
-		Connection conn = DBUtils.getConnection();
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, 2);
-		pstmt.setString(2, "ddd");
-		pstmt.setString(3, path);
-		pstmt.setString(4, "abcdef");
-		pstmt.setFloat(5, (float) 39.9);
-		pstmt.setInt(6, 10);
-		pstmt.executeUpdate();
-		conn.close();
-		pstmt.close();
-	}
+	
 	
 	//从数据库获取全部sellgood表，逆序返回
 	public static List<SellGoods> getAll() throws SQLException, ClassNotFoundException, IOException {
@@ -84,5 +58,32 @@ public class SellGoodsService {
 	    }
 		return sGood;
 	}
+	
+	//临时调用添加商品
+	public static void add() throws ClassNotFoundException, SQLException, IOException {
+		
+		String sql = "INSERT INTO sellGoods(sellerId,name,imgUrl,dscp,price,count)VALUES"
+				+ "(?,?,?,?,?,?);";
+		
+		String name = "纸巾";
+		String url = "../img/goods/6.jpg";
+		String desp = "纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾";
+		Float price = (float) 39.9;
+		int count = 10;
+		
+		Connection conn = DBUtils.getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, 1);
+		pstmt.setString(2, name);
+		pstmt.setString(3, url);
+		pstmt.setString(4, desp);
+		pstmt.setFloat(5, price);
+		pstmt.setInt(6, count);
+		pstmt.executeUpdate();
+		System.out.println("已加入");
+		conn.close();
+		pstmt.close();
+	}
+	
 	
 }

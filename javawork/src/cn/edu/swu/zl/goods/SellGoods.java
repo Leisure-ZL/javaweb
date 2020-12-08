@@ -1,8 +1,5 @@
 package cn.edu.swu.zl.goods;
 
-import java.util.concurrent.CountDownLatch;
-
-import com.mysql.cj.jdbc.Blob;
 
 public class SellGoods {
 	

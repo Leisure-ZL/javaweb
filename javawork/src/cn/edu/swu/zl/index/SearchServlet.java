@@ -34,7 +34,7 @@ public class SearchServlet extends HttpServlet{
 		
 		HttpSession session = req.getSession(true);
 		session.setAttribute("searchSGood",sGood);
-		resp.sendRedirect("/javawork/buy-page/buy.jsp");
+		resp.sendRedirect("/javawork/buy/buy.jsp");
 		
 	}
 	
