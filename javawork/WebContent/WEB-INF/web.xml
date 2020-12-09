@@ -24,5 +24,14 @@
   	<servlet-name>CartServlet</servlet-name>
   	<url-pattern>/CartServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RemoveServlet</servlet-name>
+  	<servlet-class>cn.edu.swu.zl.buyer.RemoveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RemoveServlet</servlet-name>
+  	<url-pattern>/RemoveServlet</url-pattern>
+  </servlet-mapping>
 
 </web-app>

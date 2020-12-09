@@ -213,35 +213,35 @@
 							</a>
 							<a href="/javawork/buy/buy.jsp?index=1">
 								<div class="content_item_warp">
-									<img class="item_img" src=<% out.print(" ' " +sGoods.get(1).getImgUrl() + " ' "); %>/>
+									<img class="item_img" src=<% out.print("'../img/goods/" +sGoods.get(1).getImgUrl().toString() + "'"); %>/>
 									<div class="item_title"><%out.print(sGoods.get(1).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(1).getPrice()); %></div>
 								</div>
 							</a>
 							<a href="/javawork/buy/buy.jsp?index=2">
 								<div class="content_item_warp">
-									<img class="item_img" src=<% out.print(" ' " +sGoods.get(2).getImgUrl() + " ' "); %>/>
+									<img class="item_img" src=<% out.print("'../img/goods/" +sGoods.get(2).getImgUrl().toString() + "'"); %>/>
 									<div class="item_title"><%out.print(sGoods.get(2).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(2).getPrice()); %></div>
 								</div>
 							</a>
 							<a href="/javawork/buy/buy.jsp?index=3">
 								<div class="content_item_warp">
-									<img class="item_img" src=<% out.print(" ' " +sGoods.get(3).getImgUrl() + " ' "); %>/>
+									<img class="item_img" src=<% out.print("'../img/goods/" +sGoods.get(3).getImgUrl().toString() + "'"); %>/>
 									<div class="item_title"><%out.print(sGoods.get(3).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(3).getPrice()); %></div>
 								</div>
 							</a>
 							<a href="/javawork/buy/buy.jsp?index=4">
 								<div class="content_item_warp">
-									<img class="item_img" src=<% out.print(" ' " +sGoods.get(4).getImgUrl() + " ' "); %>/>
+									<img class="item_img" src=<% out.print("'../img/goods/" +sGoods.get(4).getImgUrl().toString() + "'"); %>/>
 									<div class="item_title"><%out.print(sGoods.get(4).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(4).getPrice()); %></div>
 								</div>
 							</a>
 							<a href="/javawork/buy/buy.jsp?index=5">
 								<div class="content_item_warp">
-									<img class="item_img" src=<% out.print(" ' " +sGoods.get(5).getImgUrl() + " ' "); %>/>
+									<img class="item_img" src=<% out.print("'../img/goods/" +sGoods.get(5).getImgUrl().toString() + "'"); %>/>
 									<div class="item_title"><%out.print(sGoods.get(5).getName());%></div>
 									<div class="item_price">￥<% out.print(sGoods.get(5).getPrice()); %></div>
 								</div>

@@ -39,7 +39,7 @@
 					<img src="../frame/img/logo.gif" />
 				</div>
 				<div id="search_box">
-					<form>
+					<form action="/javawork/SearchServlet" method="get">
 						<input type="text" value="搜索 天猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
@@ -60,24 +60,22 @@
 					List<BuyGoods> bGoods = BuyGoodsService.getAllById(1);
 				%>
 				<%
+					float sum = 0;
 					for(BuyGoods bGood:bGoods){
+						sum += bGood.getPrice();
 				%>
 					<div class="cart-good-item">
-					
-						<div class="cart-item-btn">
-							<input type="button" name="cartselected"/>
-						</div>
 						<div class="cart-item-img"><img src=<% out.print(" ' " + bGood.getImgUrl() + " ' "); %>></div>
 						<div class="cart-item-name"><% out.print(bGood.getName()); %></div>
 						<div class="cart-item-price"><% out.print(bGood.getPrice()); %></div>
-						<a href="#"><div>移出购物车</div></a>
+						<a href="/javawork/RemoveServlet?name=<%out.print(bGood.getName());%>"><div>移出购物车</div></a>
 					</div>
 				<%
 					}
 				%>
 					<div id="settle">
 						<a href="#"><div id="settle-submit">结算</div></a>
-						<div id="settle-price"></div>
+						<div id="settle-price"><% out.print(sum); %></div>
 					</div>
 				</div>
 			</div>

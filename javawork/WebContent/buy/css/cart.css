@@ -4,18 +4,19 @@
 	margin: 20px 0 0 200px;
 	background-image: url(../img/cart.png);
 	background-repeat: no-repeat;
+	position: relative;
 }
 #cart-title-content{
 	width: 1000px;
 	height: 20px;
-	margin: 90px 0 0 60px;
-	display: inline-block;
+	display: flex;
 	font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+	position: absolute;
+	bottom: 5px;
 }
-#cart-title-item{
-	width: 180px;
+.cart-title-item{
+	width: 220px;
 	height: 20px;
-	display: inline-block;
 }
 #cart-good-content{
 	width: 1000px;
@@ -27,15 +28,6 @@
 	border: 1px solid #CCC;
 	padding: 10px;
 	display: flex;
-}
-.cart-item-btn{
-	margin-right: 20px;
-	float: left;
-}
-.cart-item-btn input{
-	width: 15px;
-	height: 15px;
-	
 }
 .cart-item-img{
 	margin-right: 20px;
@@ -76,9 +68,12 @@
 #settle-price{
 	width: 50px;
 	height: 50px;
-	border: 1px solid black;
 	float: right;
 	margin-right: 100px;
+	font-weight: 700;
+    font-size: 22px;
+    color: #f40;
+    line-height: 50px;
 }
 #settle-submit{
 	width: 100px;
@@ -86,7 +81,7 @@
 	text-decoration: none;
 	float: right;
 	background: #B0B0B0;
-    color: #fff;
+    color: #f40;
     font-family: 'Lantinghei SC','Microsoft Yahei';
     font-size: 20px;
     text-align: center;

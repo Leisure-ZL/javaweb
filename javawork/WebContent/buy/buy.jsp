@@ -63,7 +63,7 @@
 			%>
 				<div id="goods-box">
 					<div id="goods-left">
-						<img src=src=<% out.print(" ' " + sGood.getImgUrl() + " ' "); %>>
+						<img src=src=<% out.print("'../img/goods/" +sGood.getImgUrl().toString() + "'"); %>>
 					</div>
 					<div id="goods-right">
 						<div id="goods-name"><h1><% out.print(sGood.getName()); %></h1></div>

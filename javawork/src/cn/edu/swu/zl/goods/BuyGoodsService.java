@@ -54,5 +54,16 @@ public class BuyGoodsService {
 		    return bGoods;    
 		}
 		
+		//通过name删除数据库一个bGood
+		public static int remove(String name,int buyerId) throws ClassNotFoundException, SQLException {
+			String sql = "delete from buygoods where name=? and buyerId=?";
+			Connection conn = DBUtils.getConnection();
+			PreparedStatement ptmt = conn.prepareStatement(sql);
+			ptmt.setString(1, name);
+			ptmt.setInt(2, buyerId);
+			ptmt.execute();
+			return 1;
+		}
+		
 	
 }

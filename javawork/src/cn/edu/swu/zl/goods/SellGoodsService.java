@@ -34,7 +34,7 @@ public class SellGoodsService {
 	    	sGood.setName(rs.getString("name"));
 	    	sGood.setImgUrl(rs.getString("imgUrl"));
 	    	sGood.setDscp(rs.getString("dscp"));
-	    	sGood.setPrice(rs.getInt("price"));
+	    	sGood.setPrice(rs.getFloat("price"));
 	    	sGood.setCount(rs.getInt("count"));
 	    	sGoods.add(sGood);
 	    }
