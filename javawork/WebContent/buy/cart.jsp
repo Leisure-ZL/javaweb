@@ -36,7 +36,7 @@
 			</div>
 			<div id="header">
 				<div id="logo">
-					<img src="../frame/img/logo.gif" />
+					<a href="/javawork/index/index.jsp"><img src="../frame/img/logo.gif" /></a>
 				</div>
 				<div id="search_box">
 					<form action="/javawork/SearchServlet" method="get">
@@ -65,16 +65,16 @@
 						sum += bGood.getPrice();
 				%>
 					<div class="cart-good-item">
-						<div class="cart-item-img"><img src=<% out.print(" ' " + bGood.getImgUrl() + " ' "); %>></div>
+						<div class="cart-item-img"><img src=<% out.print("'../img/goods/" +bGood.getImg().toString() + "'"); %>></div>
 						<div class="cart-item-name"><% out.print(bGood.getName()); %></div>
 						<div class="cart-item-price"><% out.print(bGood.getPrice()); %></div>
-						<a href="/javawork/RemoveServlet?name=<%out.print(bGood.getName());%>"><div>移出购物车</div></a>
+						<a href="/javawork/RemoveServlet?name=<%out.print(bGood.getName());%>"><div class="cart-item-remove">移出购物车</div></a>
 					</div>
 				<%
 					}
 				%>
 					<div id="settle">
-						<a href="#"><div id="settle-submit">结算</div></a>
+						<a href="/javawork/index/index.jsp"><div id="settle-submit">结算</div></a>
 						<div id="settle-price"><% out.print(sum); %></div>
 					</div>
 				</div>
@@ -130,4 +130,9 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		document.getElementById("settle-submit").onclick = function(){
+			alert("购买成功!");
+		}
+	</script>
 </html>

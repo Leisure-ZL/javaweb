@@ -32,7 +32,7 @@ public class SellGoodsService {
 	    	sGood.setId(rs.getInt("id"));
 	    	sGood.setSellerId(rs.getInt("sellerId"));
 	    	sGood.setName(rs.getString("name"));
-	    	sGood.setImgUrl(rs.getString("imgUrl"));
+	    	sGood.setImg(rs.getString("img"));
 	    	sGood.setDscp(rs.getString("dscp"));
 	    	sGood.setPrice(rs.getFloat("price"));
 	    	sGood.setCount(rs.getInt("count"));
@@ -51,7 +51,7 @@ public class SellGoodsService {
 	    	sGood.setId(rs.getInt("id"));
 	    	sGood.setSellerId(rs.getInt("sellerId"));
 	    	sGood.setName(rs.getString("name"));
-	    	sGood.setImgUrl(rs.getString("imgUrl"));
+	    	sGood.setImg(rs.getString("img"));
 	    	sGood.setDscp(rs.getString("dscp"));
 	    	sGood.setPrice(rs.getInt("price"));
 	    	sGood.setCount(rs.getInt("count"));
@@ -62,7 +62,7 @@ public class SellGoodsService {
 	//临时调用添加商品
 	public static void add() throws ClassNotFoundException, SQLException, IOException {
 		
-		String sql = "INSERT INTO sellGoods(sellerId,name,imgUrl,dscp,price,count)VALUES"
+		String sql = "INSERT INTO sellGoods(sellerId,name,img,dscp,price,count)VALUES"
 				+ "(?,?,?,?,?,?);";
 		
 		String name = "纸巾";

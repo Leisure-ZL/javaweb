@@ -17,13 +17,13 @@ public class BuyGoodsService {
 		//添加bGood到数据库
 		public static void add(BuyGoods bGood) throws ClassNotFoundException, SQLException, IOException {
 			
-			String sql = "INSERT INTO buyGoods(buyerId,name,imgUrl,dscp,price,count)VALUES"
+			String sql = "INSERT INTO buygoods(buyerId,name,img,dscp,price,count)VALUES"
 					+ "(?,?,?,?,?,?);";
 			Connection conn = DBUtils.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bGood.getbuyerId());
 			pstmt.setString(2, bGood.getName());
-			pstmt.setString(3, bGood.getImgUrl());
+			pstmt.setString(3, bGood.getImg());
 			pstmt.setString(4, bGood.getDscp());
 			pstmt.setFloat(5, bGood.getPrice());
 			pstmt.setInt(6, bGood.getCount());
@@ -44,7 +44,7 @@ public class BuyGoodsService {
 		    	BuyGoods bGood = new BuyGoods();
 		    	bGood.setbuyerId(rs.getInt("buyerId"));
 		    	bGood.setName(rs.getString("name"));
-		    	bGood.setImgUrl(rs.getString("imgUrl"));
+		    	bGood.setImg(rs.getString("img"));
 		    	bGood.setDscp(rs.getString("dscp"));
 		    	bGood.setPrice(rs.getInt("price"));
 		    	bGood.setCount(rs.getInt("count"));

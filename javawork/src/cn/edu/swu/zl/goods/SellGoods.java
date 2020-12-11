@@ -6,7 +6,7 @@ public class SellGoods {
 	private int id;
 	private int sellerId;
 	private String name;
-	private String imgUrl;
+	private String img;
 	private String dscp;
 	private float price;
 	private int count;
@@ -24,11 +24,11 @@ public class SellGoods {
 	public void setSellerId(int sellerId) {
 		this.sellerId = sellerId;
 	}
-	public String getImgUrl() {
-		return imgUrl;
+	public String getImg() {
+		return img;
 	}
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setImg(String img) {
+		this.img = img;
 	}
 	public String getDscp() {
 		return dscp;

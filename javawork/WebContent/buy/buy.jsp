@@ -34,7 +34,7 @@
 			</div>
 			<div id="header">
 				<div id="logo">
-					<img src="../frame/img/logo.gif" />
+					<a href="/javawork/index/index.jsp"><img src="../frame/img/logo.gif" /></a>
 				</div>
 				<div id="search_box">
 					<form action="/javawork/SearchServlet" method="get">
@@ -63,7 +63,7 @@
 			%>
 				<div id="goods-box">
 					<div id="goods-left">
-						<img src=src=<% out.print("'../img/goods/" +sGood.getImgUrl().toString() + "'"); %>>
+						<img src=<% out.print("'../img/goods/" +sGood.getImg().toString() + "'"); %>>
 					</div>
 					<div id="goods-right">
 						<div id="goods-name"><h1><% out.print(sGood.getName()); %></h1></div>

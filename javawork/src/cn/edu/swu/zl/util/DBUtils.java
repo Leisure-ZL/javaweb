@@ -30,20 +30,11 @@ public class DBUtils {
 	}
 	
 	
-	public static void getInfo(String sql,Handler handler) throws ClassNotFoundException, SQLException{
-		
-		try(Connection conn = getConnection()) {
-			try(Statement stmt = conn.createStatement()){
-				try(ResultSet rs = stmt.executeQuery(sql)){
-					handler.handle(rs);
-				}
-			}
-		}
-	}
-	
-	
-	
-	
-	
 	
 }
+	
+	
+	
+	
+	
+	

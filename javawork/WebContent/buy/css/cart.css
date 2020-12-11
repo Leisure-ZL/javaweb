@@ -45,14 +45,16 @@
 .cart-item-price{
 	width: 100px;
 	height: 80px;
-	margin-right: 120px;
+	margin-right: 100px;
 	font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
 	color: #f40;
 	font-weight: 700;
+	margin-top:50px;
 }
 .cart-item-remove{
-	font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
-	margin-top: 20px;
+	font: 10px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+	margin-top: 50px;
+	
 }
 .cart-good-item a{
 	text-decoration: none;
@@ -74,14 +76,15 @@
     font-size: 22px;
     color: #f40;
     line-height: 50px;
+    margin-top: 50px;
 }
 #settle-submit{
 	width: 100px;
 	height: 50px;
 	text-decoration: none;
 	float: right;
-	background: #B0B0B0;
-    color: #f40;
+	background: #f40;
+    color: #FFF;
     font-family: 'Lantinghei SC','Microsoft Yahei';
     font-size: 20px;
     text-align: center;

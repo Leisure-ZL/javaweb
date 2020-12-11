@@ -7,7 +7,7 @@ public class AllService {
 		bGood.setbuyerId(buyerId);
 		bGood.setCount(sGood.getCount());
 		bGood.setDscp(sGood.getDscp());
-		bGood.setImgUrl(sGood.getImgUrl());
+		bGood.setImg(sGood.getImg());
 		bGood.setName(sGood.getName());
 		bGood.setPrice(sGood.getPrice());
 		
