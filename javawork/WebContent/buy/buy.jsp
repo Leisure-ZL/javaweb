@@ -1,6 +1,9 @@
 <%@page import="java.util.*" %>
 <%@page import="cn.edu.swu.zl.goods.SellGoodsService"%>
 <%@page import="cn.edu.swu.zl.goods.SellGoods"%>
+<%@page import="cn.edu.swu.zl.goods.BuyGoodsService"%>
+<%@page import="cn.edu.swu.zl.goods.BuyGoods"%>
+<%@page import="cn.edu.swu.zl.goods.AllService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -60,6 +63,17 @@
 					session.setAttribute("searchSGood", sGood);
 				}
 				
+				//判断是否已经在购物车中
+				BuyGoods bGood = AllService.sGoodTobGood(sGood, 1);//默认(用户id)
+				List<BuyGoods> bGoods = BuyGoodsService.getAllById(1);
+				int flag = 0;
+				for(BuyGoods e:bGoods) {
+					if(e.getName().equals(bGood.getName())){
+						flag = 1;
+						break;
+					}
+				}
+				
 			%>
 				<div id="goods-box">
 					<div id="goods-left">
@@ -75,7 +89,11 @@
 							<div id="count-left">库存:</div>
 							<div id="count-right"><% out.print(sGood.getCount()); %></div>
 						</div>
+						<% if(flag != 1){ %>
 						<a href="/javawork/CartServlet" id="goods-btn-a"><div id="goods-btn">加入购物车</div></a>
+						<% }else{ %>
+						<div id="goods-btn" style="background-color:#F1F1F1">已加入购物车</div>
+						<% } %>
 					</div>
 				</div>
 				
@@ -135,8 +153,9 @@
 		var btn = document.getElementById("goods-btn");
 		
 		btn.onclick = function(){
-			alert("加入成功！");
-			
+			btn.innerHTML = "已加入购物车";
+			btn.style = "background-color:#F1F1F1";
+
 		}
 		
 	</script>

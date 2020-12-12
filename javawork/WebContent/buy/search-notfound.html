@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div id="content-notfound">
-				<div id="tip">哎呀！找不到此商品</div>
+				<div id="tip">哎呀！找不到此商品,3s后跳转首页...</div>
 			</div>
 			<div class="footer">
 				<div class="tmall_sure">
@@ -105,4 +105,17 @@
 		</div>
 
 </body>
+<script>
+		
+		var tip = document.getElementById("tip");
+		var i = 3;
+		var timer = setInterval(function(){
+			tip.innerHTML = "哎呀！找不到此商品" + i +"s后跳转首页...";
+			i--;
+			if(i == -1){
+				window.location.href="/javawork/index"
+			}
+		},1000)
+		
+	</script>
 </html>

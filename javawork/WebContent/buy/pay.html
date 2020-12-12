@@ -1,17 +1,22 @@
-<%@page import="cn.edu.swu.zl.goods.BuyGoodsService"%>
-<%@page import="cn.edu.swu.zl.goods.BuyGoods"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="cn.edu.swu.zl.goods.SellGoodsService"%>
-<%@page import="cn.edu.swu.zl.goods.SellGoods"%>
-<%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>cart</title>
+		<title>pay</title>
 		<link rel="stylesheet" type="text/css" href="../frame/frame.css"> 
-		<link rel="stylesheet" type="text/css" href="css/cart.css"> 
+		<style type="text/css">
+		#content-notfound{
+			height: 400px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-top: 1px solid black;
+		}
+		#tip{
+			font-size: 18px;
+			
+		}
+		</style>
 	</head>
 	<body>
 		<div id="all-box">
@@ -45,39 +50,8 @@
 					</form>
 				</div>
 			</div>
-			<div id="content">
-			
-				<div id="cart-title">
-					<div id="cart-title-content">
-						<div class="cart-title-item">图片</div>
-						<div class="cart-title-item">介绍</div>
-						<div class="cart-title-item" style="margin-left: 230px;">价格</div>
-						<div class="cart-title-item">操作</div>
-					</div>
-				</div>
-				<div id="cart-good-content">
-				<% 
-					List<BuyGoods> bGoods = BuyGoodsService.getAllById(1);
-				%>
-				<%
-					float sum = 0;
-					for(BuyGoods bGood:bGoods){
-						sum += bGood.getPrice();
-				%>
-					<div class="cart-good-item">
-						<div class="cart-item-img"><img src=<% out.print("'../img/goods/" +bGood.getImg().toString() + "'"); %>></div>
-						<div class="cart-item-name"><% out.print(bGood.getName()); %></div>
-						<div class="cart-item-price"><% out.print(bGood.getPrice()); %></div>
-						<a href="/javawork/RemoveServlet?name=<%out.print(bGood.getName());%>"><div class="cart-item-remove">移出购物车</div></a>
-					</div>
-				<%
-					}
-				%>
-					<div id="settle">
-						<a href="/javawork/SettleServlet"><div id="settle-submit">结算</div></a><!-- 传用户id参数 -->
-						<div id="settle-price"><% out.print(sum); %></div>
-					</div>
-				</div>
+			<div id="content-notfound">
+				<div id="tip">支付成功！3s后跳转首页...</div>
 			</div>
 			<div class="footer">
 				<div class="tmall_sure">
@@ -130,9 +104,17 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/javascript">
-		document.getElementById("settle-submit").onclick = function(){
-			alert("购买成功!");
-		}
+	<script>
+		
+		var tip = document.getElementById("tip");
+		var i = 3;
+		var timer = setInterval(function(){
+			tip.innerHTML = "支付成功！" + i +"s后跳转首页...";
+			i--;
+			if(i == -1){
+				window.location.href="/javawork/index"
+			}
+		},1000)
+		
 	</script>
 </html>

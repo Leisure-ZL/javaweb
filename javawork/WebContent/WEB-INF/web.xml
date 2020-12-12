@@ -33,5 +33,14 @@
   	<servlet-name>RemoveServlet</servlet-name>
   	<url-pattern>/RemoveServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>SettleServlet</servlet-name>
+  	<servlet-class>cn.edu.swu.zl.buyer.SettleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SettleServlet</servlet-name>
+  	<url-pattern>/SettleServlet</url-pattern>
+  </servlet-mapping>
 
 </web-app>

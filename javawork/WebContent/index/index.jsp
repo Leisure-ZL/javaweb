@@ -199,7 +199,7 @@
 							</div>
 							<%
 								List<SellGoods> sGoods = SellGoodsService.getAll();
-
+								session.invalidate();//退回首页时销毁session，防止前面search残留而不能通过index访问
 							%>
 							<!--
                             	
