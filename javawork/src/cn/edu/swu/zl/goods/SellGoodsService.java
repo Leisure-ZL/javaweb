@@ -65,11 +65,11 @@ public class SellGoodsService {
 		String sql = "INSERT INTO sellGoods(sellerId,name,img,dscp,price,count)VALUES"
 				+ "(?,?,?,?,?,?);";
 		
-		String name = "纸巾";
-		String url = "../img/goods/6.jpg";
-		String desp = "纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾纸巾";
+		String name = "水果麦片";
+		String url = "mark-twogrid2.jpg";
+		String desp = "水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片";
 		Float price = (float) 39.9;
-		int count = 10;
+		int count = 12;
 		
 		Connection conn = DBUtils.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement(sql);

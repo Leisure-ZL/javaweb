@@ -25,7 +25,7 @@
 					</ul>
 					<ul class="top_ul">
 						<li>我的淘宝</li>
-						<a href="/javawork/buy/cart.jsp"><li>购物车</li></a>
+						<a href="/javawork/buy/cart.jsp"><li style="color=black">购物车</li></a>
 						<li>收藏夹</li>
 					</ul>
 					<ul class="top_ul">
@@ -59,7 +59,12 @@
 					List<SellGoods> sGoods = SellGoodsService.getAll();
 					String indexStr = request.getParameter("index");
 					int index = Integer.parseInt(indexStr);
-					sGood = sGoods.get(index);
+					if(index < 0){			//判断是否是index为负数的三个商品(数据库中id=1,2,3)
+						sGood = sGoods.get(sGoods.size() - Math.abs(index));
+					}else{
+						sGood = sGoods.get(index);
+					}
+					session.removeAttribute("searchSGood");
 					session.setAttribute("searchSGood", sGood);
 				}
 				
@@ -141,7 +146,7 @@
 						</tr>
 						<tr>
 							<th>手机天猫</th>
-							<td><img src="img/TB14MWoNhjaK1RjSZFAwu2dLFXa.png"></td>
+							<td><img src="../frame/img/code.png"></td>
 						</tr>
 					</table>
 				</div>

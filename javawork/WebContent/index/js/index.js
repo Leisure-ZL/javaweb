@@ -27,7 +27,7 @@ window.onload = function () {
 		count++;
 
 	}
-	timer = setInterval(mark_auto,3000);
+	timer = setInterval(mark_auto,2000);
 	
 	for(var i = 0;i < 2;i++){
 		aMarkLi[i].index = i;
@@ -46,7 +46,7 @@ window.onload = function () {
 			}
 		}
 		aMarkLi[i].onmouseout = function () {
-			timer = setInterval(mark_auto,3000);
+			timer = setInterval(mark_auto,2000);
 		}
 	}
 	
