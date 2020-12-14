@@ -1,0 +1,90 @@
+
+#goods-box{
+	width: 950px;
+	height: 500px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+#goods-left{
+	width: 420px;
+	height: 450px;
+	float: left;
+	border: 1px dashed #F2F2F2;
+}
+#goods-left img{
+	width: 400px;
+	margin: 10px 0 0 10px;
+	overflow: hidden;
+}
+#goods-right{
+	width: 500px;
+	height: 400px;
+	float: right;
+}
+#goods-name{
+	height: 20px;
+	margin: 10px 0 10px 0;
+}
+#goods-name h1{
+	line-height: 1;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    font-family: "microsoft yahei";
+}
+#goods-price{
+	height: 60px;
+	margin: 0 0 10px 0;
+	background-image: url(../img/price-bg.png);
+	display: flex;
+	align-items: center;
+}
+#price-left{
+	color: #999;
+    font-size: 18px;
+    text-align: left;
+    float: left;
+    width: 150px;
+    margin-left: 20px;
+   
+}
+#price-right{
+	color: #FF0036;
+    font-size: 24px;
+    font-weight: bolder;
+}
+#goods-dscp{
+	height: 100px;
+	color: #333;
+	font-size: 14px;
+	margin-bottom:10px ;
+	border: 2px dashed #F1F1F1;
+}
+#goods-count{
+	height: 20px;
+	margin-top: 20px;
+	border: 2px dashed #F2F2F2;
+}
+#count-left{
+	width: 80px;
+	float: left;
+}
+#count-right{
+	
+}
+#goods-btn{
+	width: 180px;
+	height: 40px;
+	background-color: #ff0036;
+	text-align: center;
+	margin: 0 auto;
+	cursor: pointer;
+	margin-top: 100px;
+	color: #FFF;
+	line-height: 38px;
+    font-size: 16px;
+}
+#goods-btn-a{
+	text-decoration: none;
+}
+
