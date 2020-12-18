@@ -18,7 +18,7 @@
 			<div id="top_user">
 				<div id="top_container">
 					<ul id="top_ul_left">
-						<li><em>喵~欢迎来到天猫</em></li>
+						<li><em>喵~欢迎来到地猫</em></li>
 						<li><a>请登录</a></li>
 						<li><a>免费注册</a></li>
 					</ul>
@@ -74,7 +74,11 @@
 					}
 				%>
 					<div id="settle">
+					<% if(sum != 0){ %>
 						<a href="/javawork/SettleServlet"><div id="settle-submit">结算</div></a><!-- 传用户id参数 -->
+					<% }else{ %>
+						<div id="settle-submit" style="background-color:#F1F1F1">结算</div>
+					<% } %>
 						<div id="settle-price"><% out.print(sum); %></div>
 					</div>
 				</div>
@@ -97,7 +101,7 @@
 							<td>支付宝充值</td>
 						</tr>
 						<tr>
-							<th>天猫保障</th>
+							<th>地猫保障</th>
 							<td>发票保障</td>
 							<td>售后规则</td>
 							<td>缺货赔付</td>
@@ -112,16 +116,16 @@
 						</tr>
 						<tr>
 							<th>商家服务</th>
-							<td>天猫规则</td>
+							<td>地猫规则</td>
 							<td>商家入驻</td>
 							<td>商家中心</td>
-							<td>天猫智库</td>
+							<td>地猫智库</td>
 							<td>物流服务</td>
 							<td>喵言喵语</td>
 							<td>运营服务</td>
 						</tr>
 						<tr>
-							<th>手机天猫</th>
+							<th>手机地猫</th>
 							<td><img src="../frame/img/code.png"></td>
 						</tr>
 					</table>
@@ -131,8 +135,6 @@
 		</div>
 	</body>
 	<script type="text/javascript">
-		document.getElementById("settle-submit").onclick = function(){
-			alert("购买成功!");
-		}
+		
 	</script>
 </html>

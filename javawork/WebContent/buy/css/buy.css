@@ -13,8 +13,8 @@
 }
 #goods-left img{
 	width: 400px;
+	height: 400px;
 	margin: 10px 0 0 10px;
-	overflow: hidden;
 }
 #goods-right{
 	width: 500px;

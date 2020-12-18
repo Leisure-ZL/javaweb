@@ -278,7 +278,7 @@
 							<td>支付宝充值</td>
 						</tr>
 						<tr>
-							<th>天猫保障</th>
+							<th>地猫保障</th>
 							<td>发票保障</td>
 							<td>售后规则</td>
 							<td>缺货赔付</td>
@@ -293,10 +293,10 @@
 						</tr>
 						<tr>
 							<th>商家服务</th>
-							<td>天猫规则</td>
+							<td>地猫规则</td>
 							<td>商家入驻</td>
 							<td>商家中心</td>
-							<td>天猫智库</td>
+							<td>地猫智库</td>
 							<td>物流服务</td>
 							<td>喵言喵语</td>
 							<td>运营服务</td>
@@ -313,7 +313,7 @@
 				<div class="topshow_container">
 					<div class="logo">
 						<span class="logo_en">TMALL</span>
-						<span class="logo_cn">天猫</span>
+						<span class="logo_cn">地猫</span>
 					</div>
 					<div class="topshow_search">
 						<form action="/javawork/SearchServlet" method="get">
