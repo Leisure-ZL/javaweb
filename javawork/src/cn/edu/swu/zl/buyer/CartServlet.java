@@ -26,15 +26,22 @@ public class CartServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		SellGoods sGood = (SellGoods)session.getAttribute("searchSGood");
-		BuyGoods bGood = AllService.sGoodTobGood(sGood, 1);//默认(用户id)
+		Buyer buyer = (Buyer)session.getAttribute("buyer");
 		
-			
-		try {
-			BuyGoodsService.add(bGood);
-		} catch (ClassNotFoundException | SQLException | IOException e) {
-			throw new IOException();
+		if(buyer != null) {
+			SellGoods sGood = (SellGoods)session.getAttribute("searchSGood");
+			BuyGoods bGood = AllService.sGoodTobGood(sGood, buyer.getId());
+			try {
+				BuyGoodsService.add(bGood);
+			} catch (ClassNotFoundException | SQLException | IOException e) {
+				throw new IOException();
+			}
+			resp.sendRedirect("/javawork/index");
+		}else {
+			resp.sendRedirect("/javawork/buy/noLogin.html");
 		}
-		resp.sendRedirect("/javawork/index");
-	}
+			
+		
+		
+	}		
 }

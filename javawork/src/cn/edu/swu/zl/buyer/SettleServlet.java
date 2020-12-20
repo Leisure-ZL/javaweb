@@ -29,6 +29,7 @@ public class SettleServlet extends HttpServlet{
 			for(BuyGoods e:bGoods) {
 				name = e.getName();
 				BuyGoodsService.remove(name, 1);
+				BuyGoodsService.decCount(e);
 				}
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			throw new IOException();

@@ -41,7 +41,7 @@
 				</div>
 				<div id="search_box">
 					<form action="/javawork/SearchServlet" method="get">
-						<input type="text" value="搜索 天猫 商品/品牌/店铺" name="search" id="search"/>
+						<input type="text" placeholder="搜索 地猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
 				</div>

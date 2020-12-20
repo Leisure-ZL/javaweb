@@ -14,6 +14,7 @@ import cn.edu.swu.zl.util.DBUtils;
 
 public class BuyGoodsService {
 	
+	
 		//添加bGood到数据库
 		public static void add(BuyGoods bGood) throws ClassNotFoundException, SQLException, IOException {
 			
@@ -63,6 +64,20 @@ public class BuyGoodsService {
 			ptmt.setInt(2, buyerId);
 			ptmt.execute();
 			return 1;
+		}
+		
+		//传一个购买品，数据库对应商品数量--
+		public static void decCount(BuyGoods bGood) throws ClassNotFoundException, SQLException {
+			String sql = "update sellgoods set count=? where name=?";
+			
+			int count = bGood.getCount() - 1;
+			
+			Connection conn = DBUtils.getConnection();
+			PreparedStatement ptmt = conn.prepareStatement(sql);
+			ptmt.setInt(1, count);
+			ptmt.setString(2, bGood.getName());
+			ptmt.execute();
+			
 		}
 		
 	

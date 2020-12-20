@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet{
 		
 		HttpSession session = req.getSession(true);
 		
-		session.setAttribute("userName", name);
+		session.setAttribute("buyer", name);
 		
 		//录入数据库....
 		resp.sendRedirect("/javawork/index");

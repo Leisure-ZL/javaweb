@@ -1,3 +1,4 @@
+<%@page import="cn.edu.swu.zl.buyer.Buyer"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="cn.edu.swu.zl.goods.SellGoodsService"%>
@@ -24,13 +25,14 @@
 			<div id="top_user">
 				<div id="top_container">
 					<ul id="top_ul_left">
-						<li><em>喵~欢迎来到地猫</em></li><!-- 读取session获取用户信息 -->
+						<li><em>喵~欢迎来到地猫</em></li><!-- 读取session获取用户信息/  登录时应该往session存buyer对象 -->
 						<% 
-							String userName = (String)session.getAttribute("userName");
+							//String userName = (String)session.getAttribute("userName");
+							Buyer buyer = (Buyer)session.getAttribute("buyer");
 						%>
 						
-						<%	if(userName != null){ %>
-							<li><a><% out.print(userName + " 您好！"); %></a></li>
+						<%	if(buyer != null){ %>
+							<li><a><% out.print(buyer.getName() + " 您好！"); %></a></li>
 						<% }else{ %>
 							<li><a>请登录</a></li>
 							<li><a>免费注册</a></li>
@@ -54,7 +56,7 @@
 				</div>
 				<div id="search_box">
 					<form action="/javawork/SearchServlet" method="get">
-						<input type="text" value="搜索 地猫 商品/品牌/店铺" name="search" id="search"/>
+						<input type="text" placeholder="搜索 地猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
 				</div>
@@ -317,7 +319,7 @@
 					</div>
 					<div class="topshow_search">
 						<form action="/javawork/SearchServlet" method="get">
-							<input type="text" value="搜索 地猫 商品/品牌/店铺" name="search"/>
+							<input type="text" placeholder="搜索 地猫 商品/品牌/店铺" name="search"/>
 							<button>搜索</button>
 						</form>
 					</div>
