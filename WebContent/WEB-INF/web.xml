@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0"
+ metadata-complete="true">
+
+	 <servlet>
+		<servlet-name>AddProduct</servlet-name>
+		<servlet-class>cn.edu.swu.add.AddProductServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+        <servlet-name>AddProduct</servlet-name>
+        <url-pattern>/AddProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+</web-app>
+
+
+
+
+
+
+
+
+
+
