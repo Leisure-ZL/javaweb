@@ -1,17 +1,15 @@
-<%@page import="cn.edu.swu.zl.goods.BuyGoodsService"%>
-<%@page import="cn.edu.swu.zl.goods.BuyGoods"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@page import="cn.edu.swu.zl.goods.SellGoodsService"%>
 <%@page import="cn.edu.swu.zl.goods.SellGoods"%>
-<%@page import="java.util.*"%>
+<%@page import="java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>cart</title>
+		<title></title>
 		<link rel="stylesheet" type="text/css" href="../frame/frame.css"> 
-		<link rel="stylesheet" type="text/css" href="css/cart.css"> 
+		<link rel="stylesheet" type="text/css" href="css/allGoods.css" />
 	</head>
 	<body>
 		<div id="all-box">
@@ -19,12 +17,10 @@
 				<div id="top_container">
 					<ul id="top_ul_left">
 						<li><em>喵~欢迎来到地猫</em></li>
-						<li><a>请登录</a></li>
-						<li><a>免费注册</a></li>
 					</ul>
 					<ul class="top_ul">
 						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
-						<li>购物车</li>
+						<a href="/javawork/buy/cart.jsp"><li style="color=black">购物车</li></a>
 						<li>收藏夹</li>
 					</ul>
 					<ul class="top_ul">
@@ -46,42 +42,23 @@
 				</div>
 			</div>
 			<div id="content">
-			
-				<div id="cart-title">
-					<div id="cart-title-content">
-						<div class="cart-title-item">图片</div>
-						<div class="cart-title-item">介绍</div>
-						<div class="cart-title-item" style="margin-left: 230px;">价格</div>
-						<div class="cart-title-item">操作</div>
-					</div>
+				<div id="item-title">
+					<div id="title-img">图片</div>
+					<div id="title-name">名称</div>
+					<div id="title-count">数量</div>
+					<div id="title-price">价格</div>
 				</div>
-				<div id="cart-good-content">
 				<% 
-					List<BuyGoods> bGoods = BuyGoodsService.getAllById(1);
+					List<SellGoods> SGoods = SellGoodsService.getAll();
 				%>
-				<%
-					float sum = 0;
-					for(BuyGoods bGood:bGoods){
-						sum += bGood.getPrice();
-				%>
-					<div class="cart-good-item">
-						<div class="cart-item-img"><img src=<% out.print("'../img/goods/" +bGood.getImg().toString() + "'"); %>></div>
-						<div class="cart-item-name"><% out.print(bGood.getName()); %></div>
-						<div class="cart-item-price"><% out.print(bGood.getPrice()); %></div>
-						<a href="/javawork/RemoveServlet?name=<%out.print(bGood.getName());%>"><div class="cart-item-remove">移出购物车</div></a>
-					</div>
-				<%
-					}
-				%>
-					<div id="settle">
-					<% if(sum != 0){ %>
-						<a href="/javawork/SettleServlet"><div id="settle-submit">结算</div></a><!-- 传用户id参数 -->
-					<% }else{ %>
-						<div id="settle-submit" style="background-color:#F1F1F1">结算</div>
-					<% } %>
-						<div id="settle-price"><% out.print(sum); %></div>
-					</div>
-				</div>
+				<% for(SellGoods e:SGoods){ %>
+				<a><div class="item">
+					<div class="item-img"><img src=<% out.print("'../img/goods/" +e.getImg().toString() + "'"); %>></div>
+					<div class="item-name"><% out.print(e.getName()); %></div>
+					<div class="item-count"><% out.print(e.getCount()); %></div>
+					<div class="item-price"><% out.print(e.getPrice()); %></div>
+				</div></a>
+				<% } %>
 			</div>
 			<div class="footer">
 				<div class="tmall_sure">
@@ -134,7 +111,4 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/javascript">
-		
-	</script>
 </html>

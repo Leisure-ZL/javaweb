@@ -24,7 +24,7 @@
 						<li><a>免费注册</a></li>
 					</ul>
 					<ul class="top_ul">
-						<li>我的淘宝</li>
+						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
 						<a href="/javawork/buy/cart.jsp"><li style="color=black">购物车</li></a>
 						<li>收藏夹</li>
 					</ul>
