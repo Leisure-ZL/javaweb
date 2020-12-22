@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="Swiper/swiper-bundle.css">
 	<script src="js/index.js"></script>
 	<script src="Swiper/swiper-bundle.js"></script>
+	<script src="../frame/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<div id="all-box">
@@ -59,6 +60,7 @@
 						<input type="text" placeholder="搜索 地猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
+					<div id="len_box"></div>
 				</div>
 			</div>
 			<div id="content">
@@ -208,7 +210,8 @@
 								</div>
 							</div>
 							<%
-								List<SellGoods> sGoods = SellGoodsService.getAll();
+								String sql = "select * from sellgoods;";
+								List<SellGoods> sGoods = SellGoodsService.getAll(sql);
 								if(session.getAttribute("searchSGood") != null){
 									session.removeAttribute("searchSGood");//退回首页时清除session属性，防止前面search残留而不能通过index访问
 								}
@@ -358,6 +361,56 @@
                     prevEl: '.swiper-button-prev',
                 }
            })
+			
+			$(function(){
+				
+				$("input[name=search]").css({
+					"position":"relative"
+				});
+				
+				$("#len_box").css({
+					"width": "480px",
+					"height": "200px",
+					"position": "absolute",
+					"top": "115px",
+					"left": "450px",
+					"z-index": "999"
+				});
+				
+				// 键盘松开的时候触发联想功能
+				$("input[name=search]").keyup(function(){
+					var goodsName = $(this).val();
+					if(goodsName != ""){
+						$.ajax({
+							url:"LenServlet",
+							type:"post",
+							data:{"goodsName":goodsName},
+							dataType:"html",
+							async:true,
+							success:function(result){
+								$("#len_box").show();
+								$("#len_box").html(result);
+								
+								// 点击模糊列表的值，必须在这里写，其他位置不起作用
+								$("li").unbind("click").bind("click", function(){
+									$("input[name=search]").val($(this).html());
+									$("input[name=search]").focus();
+									$("#len_box").hide();
+								});
+								
+								// 点击其他地方的时候隐藏
+								//$("input[name=goodsName]").blur(function(){
+								//	$("#len_box").hide();
+								//});
+							}
+						});
+					}else{
+						$("#len_box").html("");
+						$("#len_box").hide();
+					}
+				});
+			});	
+			
 			
 		</script>
 </body>

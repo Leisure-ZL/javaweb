@@ -51,5 +51,15 @@
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LenServlet</servlet-name>
+  	<servlet-class>cn.edu.swu.zl.tools.LenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LenServlet</servlet-name>
+  	<url-pattern>/index/LenServlet</url-pattern>
+  </servlet-mapping>
+  
 
 </web-app>

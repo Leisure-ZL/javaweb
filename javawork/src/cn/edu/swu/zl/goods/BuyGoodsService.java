@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import cn.edu.swu.zl.util.DBUtils;
+import cn.edu.swu.zl.tools.DBUtils;
 
 public class BuyGoodsService {
 	

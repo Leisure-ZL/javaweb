@@ -39,6 +39,7 @@
 						<input type="text" placeholder="搜索 地猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
+					
 				</div>
 			</div>
 			<div id="content">
@@ -49,7 +50,8 @@
 					<div id="title-price">价格</div>
 				</div>
 				<% 
-					List<SellGoods> SGoods = SellGoodsService.getAll();
+					String sql = "select * from sellgoods;";
+					List<SellGoods> SGoods = SellGoodsService.getAll(sql);
 				%>
 				<% for(SellGoods e:SGoods){ %>
 				<a><div class="item">

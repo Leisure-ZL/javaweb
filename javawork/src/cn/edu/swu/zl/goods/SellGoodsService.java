@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import cn.edu.swu.zl.util.DBUtils;
+import cn.edu.swu.zl.tools.DBUtils;
 
 public class SellGoodsService {
 	
@@ -20,8 +20,8 @@ public class SellGoodsService {
 	
 	
 	//从数据库获取全部sellgood表，逆序返回
-	public static List<SellGoods> getAll() throws SQLException, ClassNotFoundException, IOException {
-		String sql = "select * from sellgoods;";
+	public static List<SellGoods> getAll(String sql) throws SQLException, ClassNotFoundException, IOException {
+		
 		List<SellGoods> sGoods = new ArrayList<SellGoods>();
 		Connection conn = DBUtils.getConnection();
 		Statement stmt = conn.createStatement();
@@ -65,7 +65,7 @@ public class SellGoodsService {
 		String sql = "INSERT INTO sellGoods(sellerId,name,img,dscp,price,count)VALUES"
 				+ "(?,?,?,?,?,?);";
 		
-		String name = "水果麦片";
+		String name = "纸巾3";
 		String url = "mark-twogrid2.jpg";
 		String desp = "水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片水果麦片";
 		Float price = (float) 39.9;

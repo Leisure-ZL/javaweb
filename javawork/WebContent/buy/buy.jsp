@@ -56,7 +56,8 @@
 					}
 					
 				}else{//否则通过index传递参数访问，从数据库中取并加入session
-					List<SellGoods> sGoods = SellGoodsService.getAll();
+					String sql = "select * from sellgoods;";
+					List<SellGoods> sGoods = SellGoodsService.getAll(sql);
 					String indexStr = request.getParameter("index");
 					int index = Integer.parseInt(indexStr);
 					if(index < 0){			//判断是否是index为负数的三个商品(数据库中id=1,2,3)
