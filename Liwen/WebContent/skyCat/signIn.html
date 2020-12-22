@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			淘宝网 - 淘！我喜欢  --注册
+		</title>
+		<link href="./css/style.css" rel="stylesheet">  
+		<script src="js/formJudge.js"></script>
+	</head>
+	<body>
+		<div  class="header" >
+			<img src="img/logo.png" />
+		</div>
+		
+		<div class="middle" >
+			<div class="middleBk" >
+			<div class="formWindow">
+				<div class="form">
+					<form name="signIn"  onsubmit="return checkName()"
+						action="/TMail_Log/signInServlet" method="post" >
+						
+						<p>用户注册</p>
+						<div id="nameErr"></div>
+					    <input  id="name"  name="name" class="form_input" type="text" placeholder="姓名" />
+					    
+						<div id="userNameErr"></div>
+					    <input  id="userName" name="userName" class="form_input" type="text" placeholder="用户名/手机号" />
+					    
+					    <div id="passwordErr"></div>
+				        <input id="userPasword"name="userPassword"  class="form_input" type="password" placeholder="请输入密码" />
+				        <br />
+				        <input type="radio" name="role" value="seller">商家<br>
+                        <input type="radio" name="role" value="buyer">买家
+				        
+				        <button class="form_button" type="submit" >注册</button>	
+					   
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id="foot" class="foot">
+			<p align="center">关于天猫 帮助中心 开放平台 诚聘英才 联系我们 网站合作 法律声明 隐私权政策 知识产权 廉正举报</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" metadata-complete="true" version="4.0">
+  <servlet>
+    <description></description>
+    <display-name>logServlet</display-name>
+    <servlet-name>logServlet</servlet-name>
+    <servlet-class>cn.edu.swu.servlet.logServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logServlet</servlet-name>
+    <url-pattern>/logServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>signInServlet</display-name>
+    <servlet-name>signInServlet</servlet-name>
+    <servlet-class>cn.edu.swu.servlet.signInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>signInServlet</servlet-name>
+    <url-pattern>/signInServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

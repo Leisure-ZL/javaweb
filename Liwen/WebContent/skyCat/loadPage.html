@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> 
+			淘宝网 - 淘！我喜欢 
+		</title>
+		<link href="./css/style.css" rel="stylesheet"/>  
+		<script src="js/formJudge.js"></script>
+	</head>
+	<body>
+		<div  class="header" >
+			<img src="img/logo.png" />
+		</div>
+		
+		<div class="middle" >
+			<div class="middleBk" >
+			<div class="formWindow">
+				<div class="form">
+					<form name="login" onsubmit="return checkUserName();" 
+					action="/TMail_Log/logServlet" method="post" >
+						
+						<p>密码登录</p>
+												
+					    <input  id="userName" name="userName" class="form_input" type="text" placeholder="用户名/手机号"  />
+					    <div id="nameErr"></div>
+					    
+					    
+				        <input id="userPasword" name="userPassword" class="form_input" type="password" placeholder="请输入密码"/>
+				        <div id="passwordErr"></div>
+				        
+				        <input type="radio" name="role" value="buyer">用户<br>
+                        <input type="radio" name="role" value="seller">商家
+                        
+				        <button class="form_button" type="submit" >登录</button>	
+					   
+					</form>    
+										
+						<div style="width: 300px;height: 17.6px;text-align: right;">
+							<a href="">忘记密码</a>
+							<a href="">忘记用户名</a>
+							<a href="./signIn.html">免费注册</a>
+						</div>
+						
+					
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id="foot" class="foot">
+			<p align="center">关于天猫 帮助中心 开放平台 诚聘英才 联系我们 网站合作 法律声明 隐私权政策 知识产权 廉正举报</p>
+		</div>
+	</body>
+</html>
