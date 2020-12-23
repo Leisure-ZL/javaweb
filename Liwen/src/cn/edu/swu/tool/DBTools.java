@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import cn.edu.swu.user.User;
+
 public class DBTools {
 
 	private final static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -22,11 +24,16 @@ public class DBTools {
 		return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
 	}
 	//查询
-	public static ResultSet query(String sql) throws SQLException {
+	public static User query(String sql) throws SQLException {
 		try(Connection conn = getConnection()) {
 			try(Statement stmt = conn.createStatement()){
 				try(ResultSet rs = stmt.executeQuery(sql)){
-					return rs;
+					User user=new User();
+					//user.setRole(rs.getString("role"));
+					if(rs.next()) {
+					user.setUserName(rs.getString("userName"));
+					}
+					return user;
 				}
 			}
 		}

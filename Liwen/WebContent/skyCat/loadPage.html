@@ -6,34 +6,53 @@
 			淘宝网 - 淘！我喜欢 
 		</title>
 		<link href="./css/style.css" rel="stylesheet"/>  
+	
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
 		<script src="js/formJudge.js"></script>
+		
+		
 	</head>
 	<body>
+		
 		<div  class="header" >
 			<img src="img/logo.png" />
 		</div>
 		
 		<div class="middle" >
 			<div class="middleBk" >
-			<div class="formWindow">
 				<div class="form">
-					<form name="login" onsubmit="return checkUserName();" 
+					<form name="login" onsubmit="return checkForm_log();" 
 					action="/TMail_Log/logServlet" method="post" >
+					
+						<div class="form_title_box">
+							<h1 class="form_title">密码登录</h1>
+						</div>
 						
-						<p>密码登录</p>
-												
-					    <input  id="userName" name="userName" class="form_input" type="text" placeholder="用户名/手机号"  />
-					    <div id="nameErr"></div>
+					    <input  id="userName" name="userName" class="form_input" 
+					    	type="text" placeholder="用户名/手机号"  />
+					    <div id="userNameErr"></div>
 					    
 					    
-				        <input id="userPasword" name="userPassword" class="form_input" type="password" placeholder="请输入密码"/>
+				        <input id="userPasword" name="userPassword" class="form_input"
+				        	 type="password" placeholder="请输入密码"/>
 				        <div id="passwordErr"></div>
 				        
 				        <input type="radio" name="role" value="buyer">用户<br>
                         <input type="radio" name="role" value="seller">商家
+                        <div id="roleErr"></div>
                         
-				        <button class="form_button" type="submit" >登录</button>	
-					   
+                   
+                        <div id="v_container" style="width: 200px;height: 50px;"></div>
+						<input type="text" id="code_input" placeholder="请输入验证码"/>
+						<div id='yanzhengErr'></div>
+						
+				       
+					    <script>
+			        	var verifyCode = new GVerify("v_container");
+						 </script>
+						 
+						  <button class="form_button" type="submit" id="my_button">登录</button>	
 					</form>    
 										
 						<div style="width: 300px;height: 17.6px;text-align: right;">
@@ -43,7 +62,7 @@
 						</div>
 						
 					
-				</div>
+				
 			</div>
 		</div>
 		</div>

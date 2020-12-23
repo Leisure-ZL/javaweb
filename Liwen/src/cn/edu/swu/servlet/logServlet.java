@@ -38,16 +38,16 @@ public class logServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
-			System.out.println("success2");
+			System.out.println(u.getRole());
 			if ( u.getRole()=="buyer") {
-			    //response.sendRedirect("登陆成功后跳转buyer的页面");
-				System.out.println("success3");
+			   //response.sendRedirect("用户登录成功，可以跳转到用户自己的主页")
+				System.out.println("buyer");
 			} else if (u.getRole()=="seller") {
-				//response.sendRedirect("登陆成功后跳转seller的页面");
-				System.out.println("success4");
+				//response.sendRedirect("商家登录成功，可以跳转到商家商品发布的页面")
+				System.out.println("seller");
 			}
-			else {
-				response.sendRedirect("/TMail-Log/skyCat/signIn.html");
+			else if(u.getRole()==null){
+				response.sendRedirect("./skyCat/signIn.html");
 			}
 		
 	}
@@ -56,16 +56,18 @@ public class logServlet extends HttpServlet {
 	private User authenticate(String role, String name, String pass) throws SQLException {
 		
 		String sql = String.format(
-			"select * from '%s' where userName='%s' and password=md5('%s')",
+			"select * from %s where userName='%s' and password=md5('%s')",
 			role,name, pass
 		);		
 	    System.out.println(sql);
 	    
 	    User u1=new User();
-	    ResultSet rs=DBTools.query(sql);
-	    if(rs!=null)
+	    u1=DBTools.query(sql);
+	    System.out.println(u1.getUserName());
+	    if(u1.getUserName()!=null)
 	    {
-	        u1.setRole(rs.getString(role));
+	    	u1.setRole(role);
+	    	//System.out.println(u1.getRole());
 	    }
 	    return u1;
 
