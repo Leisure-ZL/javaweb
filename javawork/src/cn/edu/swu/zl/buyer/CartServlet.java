@@ -29,7 +29,7 @@ public class CartServlet extends HttpServlet{
 		Buyer buyer = (Buyer)session.getAttribute("buyer");
 		
 		if(buyer != null) {
-			SellGoods sGood = (SellGoods)session.getAttribute("searchSGood");
+			SellGoods sGood = (SellGoods)session.getAttribute("buyGood");
 			BuyGoods bGood = AllService.sGoodTobGood(sGood, buyer.getId());
 			try {
 				BuyGoodsService.add(bGood);

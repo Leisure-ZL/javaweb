@@ -26,7 +26,7 @@
 			<div id="top_user">
 				<div id="top_container">
 					<ul id="top_ul_left">
-						<li><em>喵~欢迎来到地猫</em></li><!-- 读取session获取用户信息/  登录时应该往session存buyer对象 -->
+						<li><em>喵~欢迎来到地猫</em></li>
 						<% 
 							//String userName = (String)session.getAttribute("userName");
 							Buyer buyer = (Buyer)session.getAttribute("buyer");
@@ -35,8 +35,8 @@
 						<%	if(buyer != null){ %>
 							<li><a><% out.print(buyer.getName() + " 您好！"); %></a></li>
 						<% }else{ %>
-							<li><a>请登录</a></li>
-							<li><a>免费注册</a></li>
+							<a href="../login/login.html"><li>请登录</li></a>
+							<a href="../login/signout.html"><li>免费注册</li></a>
 						<%	} %>
 					</ul>
 					<ul class="top_ul">
@@ -175,7 +175,7 @@
 				</div>
 				<div class="mark">
 					<div class="item_name">
-						<img src="img/mark/mark.png" />
+						<img src="img/mark.png" />
 					</div>
 					<div class="mark_con">
 						<div class="item_bigimg">
@@ -212,9 +212,7 @@
 							<%
 								String sql = "select * from sellgoods;";
 								List<SellGoods> sGoods = SellGoodsService.getAll(sql);
-								if(session.getAttribute("searchSGood") != null){
-									session.removeAttribute("searchSGood");//退回首页时清除session属性，防止前面search残留而不能通过index访问
-								}
+								
 							%>
 							<!--
                             	
@@ -399,9 +397,9 @@
 								});
 								
 								// 点击其他地方的时候隐藏
-								//$("input[name=goodsName]").blur(function(){
-								//	$("#len_box").hide();
-								//});
+								$("input[name=goodsName]").blur(function(){
+									$("#len_box").hide();
+								});
 							}
 						});
 					}else{

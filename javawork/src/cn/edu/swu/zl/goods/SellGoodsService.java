@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import cn.edu.swu.zl.tools.DBUtils;
+import cn.edu.swu.zl.tools.DBTools;
 
 public class SellGoodsService {
 	
@@ -23,7 +23,7 @@ public class SellGoodsService {
 	public static List<SellGoods> getAll(String sql) throws SQLException, ClassNotFoundException, IOException {
 		
 		List<SellGoods> sGoods = new ArrayList<SellGoods>();
-		Connection conn = DBUtils.getConnection();
+		Connection conn = DBTools.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		
@@ -43,7 +43,7 @@ public class SellGoodsService {
 	}
 	//执行特定sql语句返回一个sGood对象
 	public static SellGoods get(String sql) throws ClassNotFoundException, SQLException {
-		Connection conn = DBUtils.getConnection();
+		Connection conn = DBTools.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		SellGoods sGood = new SellGoods();
@@ -71,7 +71,7 @@ public class SellGoodsService {
 		Float price = (float) 39.9;
 		int count = 12;
 		
-		Connection conn = DBUtils.getConnection();
+		Connection conn = DBTools.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, 1);
 		pstmt.setString(2, name);

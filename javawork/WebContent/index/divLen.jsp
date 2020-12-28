@@ -5,40 +5,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	#search-ul{
+		list-style:none;
+		width:100%;
+		border:2px solid black;
+		background-color:#FFFFFF;
+	}
+	.search-item{
+		width:100%;
+		height:20px;
+		line-height:20px;
+		margin:5px 0 0 2px;
+	}
+	.search-item:hover{
+		background-color:#ddd;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>联想搜索功能</title>
 </head>
 <script src="../frame/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$("#search-ul").css({
-			"padding":"0px",
-			"margin":"0px",
-			"list-style":"none",
-			"width":"100%"
-		});
-	
-		$(".search-item").css({
-			"padding":"0px",
-			"margin":"0px",
-			"width":"100%",
-			"height":"20px"
-			"line-height":"20px"
-			
-		});
-		$(".search-item").hover(
-			function(){
-				$(this).css({"background-color":"#ddd"});
-			},
-			function(){
-				$(this).css({"background-color":"#fff"});
-			}
-		);
-			
-			
-		
-	});	
-</script>
 <body>
 	<ul id="search-ul">
 		<% 
@@ -48,4 +39,6 @@
 			<%	} %>
 	</ul>
 </body>
+
+
 </html>

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import cn.edu.swu.zl.tools.DBUtils;
+import cn.edu.swu.zl.tools.DBTools;
 
 public class BuyGoodsService {
 	
@@ -20,7 +20,7 @@ public class BuyGoodsService {
 			
 			String sql = "INSERT INTO buygoods(buyerId,name,img,dscp,price,count)VALUES"
 					+ "(?,?,?,?,?,?);";
-			Connection conn = DBUtils.getConnection();
+			Connection conn = DBTools.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bGood.getbuyerId());
 			pstmt.setString(2, bGood.getName());
@@ -37,7 +37,7 @@ public class BuyGoodsService {
 		public static List<BuyGoods> getAllById(int id) throws SQLException, ClassNotFoundException, IOException {
 			String sql = "select * from buygoods where buyerId='" + id + "';";
 			List<BuyGoods> bGoods = new ArrayList<BuyGoods>();
-			Connection conn = DBUtils.getConnection();
+			Connection conn = DBTools.getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
@@ -58,7 +58,7 @@ public class BuyGoodsService {
 		//通过name删除数据库一个bGood
 		public static int remove(String name,int buyerId) throws ClassNotFoundException, SQLException {
 			String sql = "delete from buygoods where name=? and buyerId=?";
-			Connection conn = DBUtils.getConnection();
+			Connection conn = DBTools.getConnection();
 			PreparedStatement ptmt = conn.prepareStatement(sql);
 			ptmt.setString(1, name);
 			ptmt.setInt(2, buyerId);
@@ -72,7 +72,7 @@ public class BuyGoodsService {
 			
 			int count = bGood.getCount() - 1;
 			
-			Connection conn = DBUtils.getConnection();
+			Connection conn = DBTools.getConnection();
 			PreparedStatement ptmt = conn.prepareStatement(sql);
 			ptmt.setInt(1, count);
 			ptmt.setString(2, bGood.getName());

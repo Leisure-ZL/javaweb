@@ -5,6 +5,7 @@
 <%@page import="cn.edu.swu.zl.goods.SellGoodsService"%>
 <%@page import="cn.edu.swu.zl.goods.SellGoods"%>
 <%@page import="java.util.*"%>
+<%@page import="cn.edu.swu.zl.buyer.Buyer"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,11 +20,20 @@
 				<div id="top_container">
 					<ul id="top_ul_left">
 						<li><em>喵~欢迎来到地猫</em></li>
-						<li><a>请登录</a></li>
-						<li><a>免费注册</a></li>
+						<% 
+							//String userName = (String)session.getAttribute("userName");
+							Buyer buyer = (Buyer)session.getAttribute("buyer");
+						%>
+						
+						<%	if(buyer != null){ %>
+							<li><a><% out.print(buyer.getName() + " 您好！"); %></a></li>
+						<% }else{ %>
+							<a href="../login/login.html"><li>请登录</li></a>
+							<a href="../login/signout.html"><li>免费注册</li></a>
+						<%	} %>
 					</ul>
 					<ul class="top_ul">
-						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
+						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li></a>
 						<li>购物车</li>
 						<li>收藏夹</li>
 					</ul>
@@ -57,7 +67,8 @@
 				</div>
 				<div id="cart-good-content">
 				<% 
-					List<BuyGoods> bGoods = BuyGoodsService.getAllById(1);
+					Buyer b = (Buyer)session.getAttribute("buyer");
+					List<BuyGoods> bGoods = BuyGoodsService.getAllById(b.getId());
 				%>
 				<%
 					float sum = 0;

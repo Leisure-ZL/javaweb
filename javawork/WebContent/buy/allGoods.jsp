@@ -1,6 +1,7 @@
 <%@page import="cn.edu.swu.zl.goods.SellGoodsService"%>
 <%@page import="cn.edu.swu.zl.goods.SellGoods"%>
 <%@page import="java.util.*" %>
+<%@page import="cn.edu.swu.zl.buyer.Buyer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,6 +18,16 @@
 				<div id="top_container">
 					<ul id="top_ul_left">
 						<li><em>喵~欢迎来到地猫</em></li>
+						<% 
+							Buyer buyer = (Buyer)session.getAttribute("buyer");
+						%>
+						
+						<%	if(buyer != null){ %>
+							<li><a><% out.print(buyer.getName() + " 您好！"); %></a></li>
+						<% }else{ %>
+							<a href="../login/login.html"><li>请登录</li></a>
+							<a href="../login/signout.html"><li>免费注册</li></a>
+						<%	} %>
 					</ul>
 					<ul class="top_ul">
 						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
@@ -52,15 +63,18 @@
 				<% 
 					String sql = "select * from sellgoods;";
 					List<SellGoods> SGoods = SellGoodsService.getAll(sql);
+					int i=0;
 				%>
 				<% for(SellGoods e:SGoods){ %>
-				<a><div class="item">
+				<a href=<% out.print("/javawork/buy/buy.jsp?index="+i); %>><div class="item">
 					<div class="item-img"><img src=<% out.print("'../img/goods/" +e.getImg().toString() + "'"); %>></div>
 					<div class="item-name"><% out.print(e.getName()); %></div>
 					<div class="item-count"><% out.print(e.getCount()); %></div>
 					<div class="item-price"><% out.print(e.getPrice()); %></div>
 				</div></a>
-				<% } %>
+				<%
+					i++;
+				} %>
 			</div>
 			<div class="footer">
 				<div class="tmall_sure">

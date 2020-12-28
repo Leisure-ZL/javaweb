@@ -16,6 +16,7 @@
 }
 #top_container{
 	margin: 0 120px;
+	text-decoration:none;
 }
 #top_container em{
 	display: inline-block;
@@ -27,8 +28,10 @@
 	
 }
 .top_ul{
-	list-style: none;
 	float: right;
+}
+.top_il a{
+	list-style: none;
 }
 .top_ul li,#top_ul_left li{
 	float: left;

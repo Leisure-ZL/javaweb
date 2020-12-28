@@ -4,6 +4,7 @@
 <%@page import="cn.edu.swu.zl.goods.BuyGoodsService"%>
 <%@page import="cn.edu.swu.zl.goods.BuyGoods"%>
 <%@page import="cn.edu.swu.zl.goods.AllService"%>
+<%@page import="cn.edu.swu.zl.buyer.Buyer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,8 +21,17 @@
 				<div id="top_container">
 					<ul id="top_ul_left">
 						<li><em>喵~欢迎来到地猫</em></li>
-						<li><a>请登录</a></li>
-						<li><a>免费注册</a></li>
+						<% 
+							//String userName = (String)session.getAttribute("userName");
+							Buyer buyer = (Buyer)session.getAttribute("buyer");
+						%>
+						
+						<%	if(buyer != null){ %>
+							<li><a><% out.print(buyer.getName() + " 您好！"); %></a></li>
+						<% }else{ %>
+							<a href="../login/login.html"><li>请登录</li></a>
+							<a href="../login/signout.html"><li>免费注册</li></a>
+						<%	} %>
 					</ul>
 					<ul class="top_ul">
 						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
@@ -70,7 +80,7 @@
 				}
 				
 				//判断是否已经在购物车中
-				BuyGoods bGood = AllService.sGoodTobGood(sGood, 1);//默认(用户id)
+				BuyGoods bGood = AllService.sGoodTobGood(sGood, buyer.getId());
 				List<BuyGoods> bGoods = BuyGoodsService.getAllById(1);
 				int flag = 0;
 				for(BuyGoods e:bGoods) {
@@ -102,6 +112,12 @@
 						<% } %>
 					</div>
 				</div>
+				<%
+				if(session.getAttribute("searchSGood") != null){
+					session.removeAttribute("searchSGood");
+					session.setAttribute("buyGood", sGood);
+				}
+				%>
 				
 			</div>
 			<div class="footer">

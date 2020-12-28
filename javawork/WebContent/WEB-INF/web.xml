@@ -42,15 +42,6 @@
   	<servlet-name>SettleServlet</servlet-name>
   	<url-pattern>/SettleServlet</url-pattern>
   </servlet-mapping>
-
-  <servlet>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<servlet-class>cn.edu.swu.zl.login.LoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
   
   <servlet>
   	<servlet-name>LenServlet</servlet-name>
@@ -61,5 +52,25 @@
   	<url-pattern>/index/LenServlet</url-pattern>
   </servlet-mapping>
   
-
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>cn.edu.swu.zl.login.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>SignOutServlet</display-name>
+    <servlet-name>SignOutServlet</servlet-name>
+    <servlet-class>cn.edu.swu.zl.login.SignOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignOutServlet</servlet-name>
+    <url-pattern>/SignOutServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
