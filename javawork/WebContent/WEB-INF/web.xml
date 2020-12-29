@@ -53,8 +53,6 @@
   </servlet-mapping>
   
   <servlet>
-    <description></description>
-    <display-name>LoginServlet</display-name>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>cn.edu.swu.zl.login.LoginServlet</servlet-class>
   </servlet>
@@ -64,8 +62,6 @@
   </servlet-mapping>
   
   <servlet>
-    <description></description>
-    <display-name>SignOutServlet</display-name>
     <servlet-name>SignOutServlet</servlet-name>
     <servlet-class>cn.edu.swu.zl.login.SignOutServlet</servlet-class>
   </servlet>
@@ -73,4 +69,23 @@
     <servlet-name>SignOutServlet</servlet-name>
     <url-pattern>/SignOutServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>cn.edu.swu.zl.seller.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/UploadServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>QuitServlet</servlet-name>
+    <servlet-class>cn.edu.swu.zl.login.QuitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuitServlet</servlet-name>
+    <url-pattern>/QuitServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

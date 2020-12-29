@@ -62,7 +62,7 @@ public class SellGoodsService {
 	//临时调用添加商品
 	public static void add() throws ClassNotFoundException, SQLException, IOException {
 		
-		String sql = "INSERT INTO sellGoods(sellerId,name,img,dscp,price,count)VALUES"
+		String sql = "INSERT INTO sellgoods(sellerId,name,img,dscp,price,count)VALUES"
 				+ "(?,?,?,?,?,?);";
 		
 		String name = "纸巾3";
@@ -84,6 +84,18 @@ public class SellGoodsService {
 		conn.close();
 		pstmt.close();
 	}
+	
+	//添加商品
+	public static int insert(int sellerId,String name,String img,Float price,int count,String detail) throws SQLException, ClassNotFoundException {
+		String sql = String.format(
+			"insert into sellgoods(sellerId,name,img,price,count,dscp) "
+			+ "values('%d','%s','%s','%f','%d','%s')",sellerId,name,img,price,count, detail);
+		Connection conn = DBTools.getConnection();
+		Statement stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		return 1;
+	}
+	
 	
 
 	

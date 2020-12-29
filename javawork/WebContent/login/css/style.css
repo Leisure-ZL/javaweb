@@ -1,0 +1,90 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.header{
+	/*background-color: paleturquoise;*/
+	/*padding: 22px 0;*/
+    height: 60px;
+}
+.middle{
+	width: 100% ;
+	background-color:#fad6ca ;
+}
+.middleBk{
+	height:600px;
+	width:1190px;
+	background-color:pink ;	
+	background-image: url(../img/body.png); 
+	margin: 0 auto;
+}
+
+.foot{
+	background-color: paleturquoise;
+	padding: 22px 0;
+	align-content: center;
+	color: #7f7f7f;   
+}
+.formWindow{
+	width: 354px;
+	height: 380px;
+	background-color: white; 
+	position:relative;
+	left:750px;
+	top:80px
+}
+.form_button{
+	background-color: #f40;
+	width: 300px;
+	height: 42px;
+	color: white;
+	align-content: center;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	}
+.form{
+	width: 350px;
+	height: 350px;
+	/*background-color: lightpink;*/
+}
+.form_input{
+	background-color:white;
+	margin-top: 20px;
+	margin-left: 10px;
+	width: 300px;
+	height: 42px;
+	
+}
+
+#toLogin{
+	width: 300px;
+	height: 17.6px;
+	text-align: right;
+}
+#toLogin a{
+	text-decoration: none;
+	color: black;
+	
+}
+.show{
+	font-size:12px ;
+	color: red;
+	padding-left: 15px;
+}
+
+.form_title{
+	font-size: 28px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#code_input{
+	background-color: white;
+    margin: 10px 0 10px 10px;
+    width: 200px;
+    height: 22px;
+}
+.role{
+	margin: 5px 0 10px 20px;
+}

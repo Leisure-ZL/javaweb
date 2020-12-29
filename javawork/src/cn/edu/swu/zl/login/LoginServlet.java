@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet{
 				Seller seller = auth.querySeller(name, pass);//通过传入的参数查询数据库，返回数据库seller对象
 				HttpSession session = req.getSession(true);
 				session.setAttribute("seller", seller);
-				resp.sendRedirect("/javawork/index/index.jsp");
+				resp.sendRedirect("/javawork/sell/sellerweb.jsp");
 			}
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();

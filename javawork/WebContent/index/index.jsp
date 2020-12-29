@@ -33,7 +33,8 @@
 						%>
 						
 						<%	if(buyer != null){ %>
-							<li><a><% out.print(buyer.getName() + " 您好！"); %></a></li>
+							<li><% out.print(buyer.getName() + " 您好！"); %></li>
+							<li><a href="/javawork/QuitServlet">登出</a></li>
 						<% }else{ %>
 							<a href="../login/login.html"><li>请登录</li></a>
 							<a href="../login/signout.html"><li>免费注册</li></a>

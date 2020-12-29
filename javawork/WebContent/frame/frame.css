@@ -29,9 +29,11 @@
 }
 .top_ul{
 	float: right;
-}
-.top_il a{
 	list-style: none;
+}
+#top_user a{
+	text-decoration:none;
+	color:black;
 }
 .top_ul li,#top_ul_left li{
 	float: left;
