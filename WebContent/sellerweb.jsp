@@ -1,9 +1,10 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>seller</title>
-	<link rel="stylesheet" type="text/css" href="./frame.css"> 
+<link rel="stylesheet" type="text/css" href="./frame.css"> 
 	<style type="text/css">
 		#topbanner
 		{
@@ -38,9 +39,8 @@
 		}
 	</style>
 </head>
-
 <body>
-		<div id="all-box">
+	<div id="all-box">
 			<div id="top_user">
 				<div id="top_container">
 					<ul id="top_ul_left">
