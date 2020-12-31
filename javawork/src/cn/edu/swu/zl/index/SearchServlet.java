@@ -23,7 +23,7 @@ public class SearchServlet extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String content = req.getParameter("search");
-		String sql = "SELECT * FROM sellGoods WHERE name like '%" + content.toString() + "%';"; 
+		String sql = "SELECT * FROM sellgoods WHERE name like '%" + content.toString() + "%';"; 
 		SellGoods sGood = null;
 		try {
 			sGood = SellGoodsService.get(sql);
@@ -35,7 +35,6 @@ public class SearchServlet extends HttpServlet{
 				resp.sendRedirect("/javawork/buy/search-notfound.html");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("SQLError");
 			throw new IOException();
 		}
 		

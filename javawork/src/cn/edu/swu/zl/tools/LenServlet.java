@@ -28,7 +28,7 @@ public class LenServlet extends HttpServlet{
 		
 		System.out.println(goodsName);
 		
-		String sql = "SELECT * FROM sellGoods WHERE name like '%" + goodsName.toString() + "%';"; 
+		String sql = "SELECT * FROM sellgoods WHERE name like '%" + goodsName.toString() + "%';"; 
 		try {
 			List<SellGoods> goods = SellGoodsService.getAll(sql);
 			req.setAttribute("goodsNames", goods);
