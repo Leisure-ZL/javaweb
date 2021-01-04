@@ -96,7 +96,15 @@ public class SellGoodsService {
 		return 1;
 	}
 	
-	
+	public static int remove(String name,int sellerId) throws ClassNotFoundException, SQLException {
+		String sql = "delete from sellgoods where name=? and sellerId=?";
+		Connection conn = DBTools.getConnection();
+		PreparedStatement ptmt = conn.prepareStatement(sql);
+		ptmt.setString(1, name);
+		ptmt.setInt(2, sellerId);
+		ptmt.execute();
+		return 1;
+	}
 
 	
 	

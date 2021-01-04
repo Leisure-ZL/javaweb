@@ -88,4 +88,13 @@
     <url-pattern>/QuitServlet</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+    <servlet-name>RemoveSGoodServlet</servlet-name>
+    <servlet-class>cn.edu.swu.zl.seller.RemoveSGoodServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveSGoodServlet</servlet-name>
+    <url-pattern>/RemoveSGoodServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

@@ -29,16 +29,19 @@ public class LoginServlet extends HttpServlet{
 		Auth auth = new Auth();
 		
 		try {
-			if (role.equals("buyer") && auth.auth(role,name,pass) != 0) {
+			if (role.equals("buyer") && auth.auth(role,name,pass) != -1) {
 				Buyer buyer = auth.queryBuyer(name, pass);//通过传入的参数查询数据库，返回数据库buyer对象
 				HttpSession session = req.getSession(true);
 				session.setAttribute("buyer", buyer);
 				resp.sendRedirect("/javawork/index/index.jsp");
-			}else {
+			}
+			else if (role.equals("seller") && auth.auth(role,name,pass) != -1){
 				Seller seller = auth.querySeller(name, pass);//通过传入的参数查询数据库，返回数据库seller对象
 				HttpSession session = req.getSession(true);
 				session.setAttribute("seller", seller);
 				resp.sendRedirect("/javawork/sell/sellerweb.jsp");
+			}else {
+				resp.sendRedirect("/javawork/login/loginErr.html");
 			}
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();

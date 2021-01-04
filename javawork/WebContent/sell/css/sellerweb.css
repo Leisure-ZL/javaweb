@@ -42,8 +42,14 @@
     font-size: 14px;
     font-weight: bolder;
 }
+.cart-item-remove{
+	font: 10px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+	margin-top: 30px;
+	color:black;
+}
 a{
 	text-decoration:none;
+	color: black;
 }
 #deploy{
 	width:100px;

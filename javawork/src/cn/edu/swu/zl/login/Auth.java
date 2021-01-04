@@ -14,7 +14,10 @@ public class Auth {
 		if(role.equals("buyer")) {
 			return queryBuyer(name, pass).getId();
 		}
-		return 0;
+		if(role.equals("seller")) {
+			return querySeller(name, pass).getId();
+		}
+		return -1;
 		   
 	}
 
@@ -32,8 +35,11 @@ public class Auth {
 			buyer.setName(rs.getString("name"));
 			buyer.setPassword(rs.getString("password"));
 			buyer.setUserName(rs.getString("userName"));
+			return buyer;
+		}else {
+			buyer.setId(-1);
+			return buyer;
 		}
-		return buyer;
 	}
 	 
 	 public Seller querySeller(String name, String pass) throws ClassNotFoundException, SQLException {
@@ -50,8 +56,11 @@ public class Auth {
 				seller.setName(rs.getString("name"));
 				seller.setPassword(rs.getString("password"));
 				seller.setUserName(rs.getString("userName"));
+				return seller;
+			}else {
+				seller.setId(-1);
+				return seller;
 			}
-			return seller;
 		}
 	 
 	 
@@ -62,5 +71,21 @@ public class Auth {
 			return DBTools.update(sql);
 		}
 	 
+	 public int signOutAuth(String name, String role) throws ClassNotFoundException, SQLException {
+		 String sql = String.format(
+					"select * from %s where userName='%s'",
+					role,name
+				);		
+		 Connection conn = DBTools.getConnection();
+		 Statement stmt = conn.createStatement();
+		 ResultSet rs = stmt.executeQuery(sql);
+		 if(!rs.next()) {
+			 return 1;
+		 }else {
+			 return 0;
+		 }
+	 }
+		 
+		 
 	
 }

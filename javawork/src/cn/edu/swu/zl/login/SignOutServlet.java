@@ -3,6 +3,7 @@ package cn.edu.swu.zl.login;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.crypto.spec.RC2ParameterSpec;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,16 +27,20 @@ public class SignOutServlet extends HttpServlet{
 		Auth a = new Auth();
 	
 			try {
-				if(a.insertUser(role,name,userName, password) !=0 ){		
+				if(a.signOutAuth(userName, role) != 0 && a.insertUser(role,name,userName, password) !=0 ){		
 				resp.sendRedirect("/javawork/login/toLogin.html");
 				//注册成功后跳转到登录页面
 				}
 				else {
 					System.out.println("fail to insert a user");
+					resp.sendRedirect("/javawork/login/signOutErr.html");
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	

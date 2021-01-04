@@ -24,6 +24,7 @@
 						
 						<%	if(seller != null){ %>
 							<li><a><% out.print(seller.getName() + " 您好！"); %></a></li>
+							<li><a href="/javawork/QuitServlet">登出</a></li>
 						<% }else{ 
 							response.sendRedirect("/javawork/login/login.html");
 						}
@@ -74,6 +75,7 @@
 					<div class="item-name"><%out.print(e.getName()); %></div>
 					<div class="item-count"><%out.print(e.getCount());%></div>
 					<div class="item-price"><%out.print(e.getPrice());%></div>
+					<a href="/javawork/RemoveSGoodServlet?name=<%out.print(e.getName());%>"><div class="cart-item-remove">下架</div></a>
 				</div>
 				<% } %>
 				</div>
