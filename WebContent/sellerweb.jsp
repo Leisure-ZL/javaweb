@@ -1,43 +1,14 @@
+<%@page import="cn.edu.swu.products.ProductsService"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="cn.edu.swu.products.Products" %>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>seller</title>
-<link rel="stylesheet" type="text/css" href="./frame.css"> 
-	<style type="text/css">
-		#topbanner
-		{
-			width: 625px;
-			float: right;
-			margin-right: 420px;
-		}
-		#title
-		{
-			text-align: center;
-			font-size: 60px;
-		}
-		#main
-		{
-			align: center;
-		}
-		#navbar
-		{
-			width:1024px;
-			height:45px;
-			background-color: #E576F3;
-			list-style-type:none;
-			padding:0 12px;
-		}
-		#navbar .lead
-		{
-			text-align:center;
-			height:45px;
-			width:125px;
-			line-height:45px;
-		    float:left;
-		}
-	</style>
+<link rel="stylesheet" type="text/css" href="./frame.css">
+<link rel="stylesheet" type="text/css" href="./seller.css"> 
 </head>
 <body>
 	<div id="all-box">
@@ -68,16 +39,34 @@
 					<div id="title">卖家中心</div>
 				</div>
 			</div>
-			<div id="content">
-	<div id="main">
-		<ol id="navbar">
-			<li class="lead">宝贝</li>
-			<li class="lead">单价</li>
-			<li class="lead">数量</li>
-			<li class="lead">详情</li>
-		</ol>
-	</div>
-	</div>
+			<div id="content1">
+				<div class="wrap-line"></div>
+					<div id="item-title">
+						<div id="title-img">图片</div>
+						<div id="title-name">名称</div>
+						<div id="title-count">数量</div>
+						<div id="title-price">价格</div>
+						<div>操作</div>
+					</div>
+					<% 
+					List<Products> products = ProductsService.getAll();
+				%>
+				<% for(Products e:products){ 
+				
+				%>
+				<div class="item">
+					<div class="item-img"><img src=<% out.print("'" +e.getImgUrl().toString() + "'"); %>></div>
+					<div class="item-name"><%out.print(e.getProductname()); %></div>
+					<div class="item-count"><%out.print(e.getNumber());%></div>
+					<div class="item-price"><%out.print(e.getPrice());%></div>
+					<div><a href="/seller/RemoveProductServlet?name=<%out.print(e.getProductname());%>&id=<%out.print(e.getId());%>">删除</a></div>
+				</div>
+				<% } %>
+				</div>
+				<div>
+				
+				</div>
+			</div>
 			<div class="footer">
 				<div class="tmall_sure">
 					<div class="tmall_sure_abox">

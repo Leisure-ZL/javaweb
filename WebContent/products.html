@@ -5,14 +5,13 @@
 		<title>products</title>
 		<link rel="stylesheet" type="text/css" href="./frame.css"> 
 		<style type="text/css">
-			#img
+		#img
 		{
 			height: 418px;
 			width:418px;
-			background-color: antiquewhite;
+			background-color:#ffffff;
 			margin:20px 0 0 320px;
 			float: left;
-		
 		}
 		#inf
 		{
@@ -20,21 +19,44 @@
 			height:418px;
 			float:left;
 			margin:20px 0 0 30px;
-			background-color:antiquewhite;
+			background-color:#ffffff;
 		}
-		#table
+		.tip
 		{
-			width:380px;
+			font-size: 14px;
+			color:red;
 		}
-			
+		.form_input
+		{
+			    margin-top: 20px;
+			    margin-left: 20px;
+			    width: 230px;
+			    height: 30px;
+		}
+		#form_
+		{
+			 margin-top: 20px;
+			 margin-left: 20px;
+		}
+		.form_text
+		{
+			color:#777777;
+		}
+		.buttons
+		{
+			margin-top: 20px;
+			 margin-left: 20px;
+			width:100px;
+			height:30px;
+		}		
 		</style>
 		<script type="text/javascript">
 		function infCheck()
 		{
-			var pname=document.getElementById("pname").value;
-			var price=document.getElementById("price").value;
-			var num=document.getElementById("num").value;
-			var detail=document.getElementById("detail").value;
+				var pname=document.getElementById("pname").value;
+				var price=document.getElementById("price").value;
+				var num=document.getElementById("num").value;
+				var detail=document.getElementById("detail").value;
 	
 			if (pname.length<1)
 				{					        
@@ -77,7 +99,7 @@
 			var detail=document.getElementById("detail").value;
 			document.getElementsByTagName("span")[3].style.visibility="hidden";
 		}
-			
+	
 			
 	</script>
 	</head>
@@ -106,48 +128,39 @@
 				<div id="logo">
 					<img src="img/logo.gif" />
 				</div>
-				<div id="search_box">
+				 <div id="search_box">
 					<form>
 						<input type="text" value="搜索 天猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
 				</div>
+
 			</div>
 			<div id="content">
 				<div id="img"></div>
 		<div id="inf">
-		<!--  <form  id="table"  onSubmit="return infCheck();">-->
-			<form  id="table"  onSubmit="return infCheck();" action="/seller/AddProductServlet" method="POST" enctype="multipart/form-data">
-			<table>
-				<tr>
-					<td>商品名称：</td>
-					<td><input type="text" name="productname" id="pname" onClick="return userReset1();"><span>*名称不能为空!</span></td>
-				</tr>
-			
-				<tr>
-					<td>价格：</td>
-					<td><input type="text" name="price" id="price" onClick="return userReset2();"><span>*价格不能为空!</span></td>
-				</tr>
-			
-				<tr>
-					<td>数量：</td>
-					<td><input type="text" name="number" id="num" onClick="return userReset3();"><span>*数量不能为空!</span></td>
-				</tr>
-				<tr>
-				  <td>商品详情：</td>
-				  <td>
-					  <textarea name="detail" id="detail" onClick="return userReset4();" cols="40" rows="5"></textarea><span>*详情不能为空!</span>
-				  </td>
-				</tr>
-				 <tr>
-					<td>商品图片：</td>
-					<td><input type="file" name="uploadFile" /></td>
-				</tr>
-			</table>
-			<br>
-			<input type="submit" value="发布">
-    		<input type="reset" value="重置">
-		</form>
+			  <form  onSubmit="return infCheck();" action="/seller/AddProductServlet" method="POST" enctype="multipart/form-data">
+				<div>
+				<input class="form_input" type="text" placeholder="商品名称" name="productname" id="pname"  onClick="return userReset1();"><span class="tip">*名称不能为空!</span>
+				</div>
+				<div>
+				<input class="form_input" type="text" placeholder="商品价格" name="price" id="price" onClick="return userReset2();"><span class="tip">*价格不能为空!</span>
+				</div>
+				<div>
+				<input class="form_input" type="text" placeholder="商品数量" name="number" id="num" onClick="return userReset3();"><span class="tip">*数量不能为空!</span>
+				</div>
+				<div id="form_">
+				<textarea   placeholder="商品详情" name="detail" id="detail" cols="30" rows="5" onClick="return userReset4();" ></textarea><span class="tip">*详情不能为空!</span>
+				</div>
+				<div id="form_">
+					<span class="form_text">商品图片：</span>
+					<input type="file" name="uploadFile" />
+				</div>
+				<div>
+				<input class="buttons" type="submit" value="发布">
+	    		<input class="buttons" type="reset" value="重置">
+	    		</div>
+				</form>
 		</div>
 			</div>
 			<div class="footer">

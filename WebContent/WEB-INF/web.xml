@@ -15,7 +15,14 @@
         <url-pattern>/AddProductServlet</url-pattern>
     </servlet-mapping>
     
-    
+    <servlet>
+		<servlet-name>RemoveProduct</servlet-name>
+		<servlet-class>cn.edu.swu.add.RemoveProductServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+        <servlet-name>RemoveProduct</servlet-name>
+        <url-pattern>/RemoveProductServlet</url-pattern>
+    </servlet-mapping>
     
 </web-app>
 

@@ -78,9 +78,10 @@
 }
 #content{
 	width: 100%;
-	height: auto;
+	height: 460px;
 	border-top: 1px solid black;
 	overflow: hidden;
+    background-color:#fad6ca;
 }
 .footer{
 	border-top: 1px solid #D1D7DC;
@@ -136,4 +137,3 @@
 	width: 105px;
 	display: block;
 }
-		

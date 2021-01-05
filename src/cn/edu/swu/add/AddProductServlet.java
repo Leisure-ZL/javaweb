@@ -2,7 +2,6 @@ package cn.edu.swu.add;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
@@ -10,17 +9,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import cn.edu.swu.products.ProductsService;
-
 
 public class AddProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,12 +28,12 @@ public class AddProductServlet extends HttpServlet {
     private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws IOException {
+			throws IOException, ServletException {
 		this.doPost(request, response);
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws IOException {
+			throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
@@ -71,7 +69,7 @@ public class AddProductServlet extends HttpServlet {
 			    long size = item.getSize(); // 文件的大小，以字节为单位
 
 				String newFileName = new Date().getTime() + suffix;
-			   String uploadPath = request.getServletContext().getRealPath("./") + File.separator +newFileName ;
+				String uploadPath = request.getServletContext().getRealPath("/") + File.separator +newFileName ;
 			   File saveFile = new File(uploadPath); // 定义一个file指向一个具体的文件
 			try {
 				
@@ -83,12 +81,13 @@ public class AddProductServlet extends HttpServlet {
 		float price =Float.parseFloat(params.get("price"));	
 		int number =Integer.parseInt(params.get("number"));	
 		String detail =params.get("detail");	
-			
 		try {
 		ProductsService.insertProduct(1,name,uploadPath,price,number,detail);			
-		response.sendRedirect("/seller/sellerweb.html");
+		response.sendRedirect("/seller/sellerweb.jsp");
 		} catch (SQLException e) {
 			throw new IOException(e);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		}
 	
