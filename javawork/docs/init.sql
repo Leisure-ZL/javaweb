@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS `seller` (
 //创建buyGoods表
 CREATE TABLE IF NOT EXISTS `buygoods` (
 	`id` INT UNSIGNED AUTO_INCREMENT,
+	`sellerId` INT UNSIGNED NOT NULL,
 	`buyerId` INT UNSIGNED NOT NULL,
 	`name` VARCHAR(20) NOT NULL,
 	`img` VARCHAR(80) NOT NULL,
@@ -38,7 +39,18 @@ CREATE TABLE IF NOT EXISTS `sellgoods` (
 	`count` INT NOT NULL,
 	PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+//创建allgoods
+CREATE TABLE IF NOT EXISTS `allgoods` (
+	`id` INT UNSIGNED AUTO_INCREMENT,
+	`sellerId` INT UNSIGNED NOT NULL,
+	`buyerId` INT UNSIGNED NOT NULL,
+	`name` VARCHAR(20) NOT NULL,
+	`img` VARCHAR(80) NOT NULL,
+	`dscp` VARCHAR(200) NOT NULL,
+	`price` FLOAT NOT NULL,
+	`count` INT NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 //插入buyer
 INSERT INTO buyer(name,userName,password)VALUES('buyer1','buyer1','123456');
 

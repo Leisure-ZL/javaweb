@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cn.edu.swu.zl.goods.AllService;
 import cn.edu.swu.zl.goods.BuyGoods;
 import cn.edu.swu.zl.goods.BuyGoodsService;
 
@@ -26,9 +27,11 @@ public class SettleServlet extends HttpServlet{
 		try {
 			HttpSession session = req.getSession();
 			Buyer buyer = (Buyer)session.getAttribute("buyer");
-			List<BuyGoods> bGoods = BuyGoodsService.getAllById(buyer.getId());
+			String sql="select * from buygoods where buyerId=" + buyer.getId()+";";
+			List<BuyGoods> bGoods = BuyGoodsService.getAll(sql);
 			for(BuyGoods e:bGoods) {
 				name = e.getName();
+				AllService.add(e);
 				BuyGoodsService.remove(name, buyer.getId());
 				BuyGoodsService.decCount(e);
 				}

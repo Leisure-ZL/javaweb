@@ -18,24 +18,24 @@ public class BuyGoodsService {
 		//添加bGood到数据库
 		public static void add(BuyGoods bGood) throws ClassNotFoundException, SQLException, IOException {
 			
-			String sql = "INSERT INTO buygoods(buyerId,name,img,dscp,price,count)VALUES"
-					+ "(?,?,?,?,?,?);";
+			String sql = "INSERT INTO buygoods(sellerId,buyerId,name,img,dscp,price,count)VALUES"
+					+ "(?,?,?,?,?,?,?);";
 			Connection conn = DBTools.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, bGood.getbuyerId());
-			pstmt.setString(2, bGood.getName());
-			pstmt.setString(3, bGood.getImg());
-			pstmt.setString(4, bGood.getDscp());
-			pstmt.setFloat(5, bGood.getPrice());
-			pstmt.setInt(6, bGood.getCount());
+			pstmt.setInt(1, bGood.getSellerId());
+			pstmt.setInt(2, bGood.getbuyerId());
+			pstmt.setString(3, bGood.getName());
+			pstmt.setString(4, bGood.getImg());
+			pstmt.setString(5, bGood.getDscp());
+			pstmt.setFloat(6, bGood.getPrice());
+			pstmt.setInt(7, bGood.getCount());
 			pstmt.executeUpdate();
 			conn.close();
 			pstmt.close();
 		}
 		
-		//通过buyerId从数据库获取全部bGood
-		public static List<BuyGoods> getAllById(int id) throws SQLException, ClassNotFoundException, IOException {
-			String sql = "select * from buygoods where buyerId='" + id + "';";
+		//通过从数据库获取全部bGood
+		public static List<BuyGoods> getAll(String sql) throws SQLException, ClassNotFoundException, IOException {
 			List<BuyGoods> bGoods = new ArrayList<BuyGoods>();
 			Connection conn = DBTools.getConnection();
 			Statement stmt = conn.createStatement();
@@ -43,6 +43,7 @@ public class BuyGoodsService {
 			
 		    while(rs.next()) {
 		    	BuyGoods bGood = new BuyGoods();
+		    	bGood.setSellerId(rs.getInt("sellerId"));
 		    	bGood.setbuyerId(rs.getInt("buyerId"));
 		    	bGood.setName(rs.getString("name"));
 		    	bGood.setImg(rs.getString("img"));

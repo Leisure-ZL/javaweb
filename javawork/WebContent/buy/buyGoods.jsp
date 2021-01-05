@@ -1,22 +1,20 @@
+<%@page import="cn.edu.swu.zl.seller.SellerService"%>
+<%@page import="cn.edu.swu.zl.seller.Seller"%>
+<%@page import="cn.edu.swu.zl.goods.SellGoodsService"%>
+<%@page import="cn.edu.swu.zl.goods.SellGoods"%>
+<%@page import="cn.edu.swu.zl.goods.BuyGoodsService"%>
+<%@page import="cn.edu.swu.zl.goods.BuyGoods"%>
+<%@page import="java.util.*" %>
+<%@page import="cn.edu.swu.zl.buyer.Buyer"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>pay</title>
+		<title></title>
 		<link rel="stylesheet" type="text/css" href="../frame/frame.css"> 
-		<style type="text/css">
-		#content-notfound{
-			height: 400px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-top: 1px solid black;
-		}
-		#tip{
-			font-size: 18px;
-			
-		}
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/allGoods.css" />
 	</head>
 	<body>
 		<div id="all-box">
@@ -24,11 +22,21 @@
 				<div id="top_container">
 					<ul id="top_ul_left">
 						<li><em>喵~欢迎来到地猫</em></li>
+						<% 
+							Buyer buyer = (Buyer)session.getAttribute("buyer");
+						%>
+						
+						<%	if(buyer != null){ %>
+							<li><a><% out.print(buyer.getName() + " 您好！"); %></a></li>
+						<% }else{ %>
+							<a href="../login/login.html"><li>请登录</li></a>
+							<a href="../login/signout.html"><li>免费注册</li></a>
+						<%	} %>
 					</ul>
 					<ul class="top_ul">
 						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
-						<li>购物车</li>
-						<a href="/javawork/buy/buyGoods.jsp"><li>购买商品清单</li></a>
+						<a href="/javawork/buy/cart.jsp"><li style="color=black">购物车</li></a>
+						<li>购买商品清单</li>
 					</ul>
 					<ul class="top_ul">
 						<li>手机版</li>
@@ -46,10 +54,36 @@
 						<input type="text" placeholder="搜索 地猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
+					
 				</div>
 			</div>
-			<div id="content-notfound">
-				<div id="tip">支付成功！3s后跳转...</div>
+			<div id="content">
+				<div id="item-title">
+					<div id="title-img">图片</div>
+					<div id="title-name">名称</div>
+					<div id="title-count">商家</div>
+					<div id="title-price">物流信息</div>
+				</div>
+				<% 
+					String sql = "select * from allgoods where buyerId="+buyer.getId()+";";;
+					List<BuyGoods> bGoods = BuyGoodsService.getAll(sql);
+					int i=0;
+					
+				%>
+				<% for(BuyGoods e:bGoods){ %>
+				<a href=<% out.print("/javawork/buy/buy.jsp?index="+i); %>><div class="item">
+					<div class="item-img"><img src=<% out.print("'../img/goods/" +e.getImg().toString() + "'"); %>></div>
+					<div class="item-name"><% out.print(e.getName()); %></div>
+					<div class="item-count"><%
+					String sql2 = "select * from seller where id=" + e.getSellerId()+";";
+					Seller seller = SellerService.get(sql2);
+					out.print(seller.getName()); 
+					%></div>
+					<div class="item-price" style="color:black;font-size:12px;">查看物流信息</div>
+				</div></a>
+				<%
+					i++;
+				} %>
 			</div>
 			<div class="footer">
 				<div class="tmall_sure">
@@ -102,17 +136,4 @@
 			</div>
 		</div>
 	</body>
-	<script>
-		
-		var tip = document.getElementById("tip");
-		var i = 3;
-		var timer = setInterval(function(){
-			tip.innerHTML = "支付成功！" + i +"s后跳转...";
-			i--;
-			if(i == -1){
-				window.location.href="/javawork/buy/buyGoods.jsp"
-			}
-		},600)
-		
-	</script>
 </html>

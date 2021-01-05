@@ -28,7 +28,6 @@
 					<ul id="top_ul_left">
 						<li><em>喵~欢迎来到地猫</em></li>
 						<% 
-							//String userName = (String)session.getAttribute("userName");
 							Buyer buyer = (Buyer)session.getAttribute("buyer");
 						%>
 						
@@ -43,7 +42,7 @@
 					<ul class="top_ul">
 						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
 						<a href="/javawork/buy/cart.jsp"><li>购物车</li></a>
-						<li>收藏夹</li>
+						<a href="/javawork/buy/buyGoods.jsp"><li>购买商品清单</li></a>
 					</ul>
 					<ul class="top_ul">
 						<li>手机版</li>

@@ -33,7 +33,7 @@
 					<ul class="top_ul">
 						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
 						<a href="/javawork/buy/cart.jsp"><li style="color=black">购物车</li></a>
-						<li>收藏夹</li>
+						<a href="/javawork/buy/buyGoods.jsp"><li>购买商品清单</li></a>
 					</ul>
 					<ul class="top_ul">
 						<li>手机版</li>
@@ -80,7 +80,8 @@
 				int flag = 0;
 				if(buyer != null){
 				BuyGoods bGood = AllService.sGoodTobGood(sGood, buyer.getId());
-				List<BuyGoods> bGoods = BuyGoodsService.getAllById(buyer.getId());
+				String sql="select * from buygoods where buyerId=" + buyer.getId()+";";
+				List<BuyGoods> bGoods = BuyGoodsService.getAll(sql);
 				for(BuyGoods e:bGoods) {
 					if(e.getName().equals(bGood.getName())){
 						flag = 1;

@@ -1,0 +1,92 @@
+#cart-title{
+	height: 100px;
+	width: 1000px;
+	margin: 20px 0 0 200px;
+	background-image: url(../img/cart.png);
+	background-repeat: no-repeat;
+	position: relative;
+}
+#cart-title-content{
+	width: 1000px;
+	height: 20px;
+	display: flex;
+	font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+	position: absolute;
+	bottom: 5px;
+}
+.cart-title-item{
+	width: 220px;
+	height: 20px;
+}
+#cart-good-content{
+	width: 1000px;
+	margin: 10px 0 10px 200px;
+}
+.cart-good-item{
+	width: 1000px;
+	height: 80px;
+	border: 1px solid #CCC;
+	padding: 10px;
+	display: flex;
+}
+.cart-item-img{
+	margin-right: 20px;
+}
+.cart-item-img img{
+	width: 80px;
+	height: 80px;
+}
+.cart-item-name{
+	width: 200px;
+	height: 80px;
+	margin-right: 280px;
+	font: 14px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+}
+.cart-item-price{
+	width: 100px;
+	height: 80px;
+	margin-right: 100px;
+	font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+	color: #f40;
+	font-weight: 700;
+	margin-top:30px;
+}
+.cart-item-remove{
+	font: 10px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+	margin-top: 30px;
+	
+}
+.cart-good-item a{
+	text-decoration: none;
+	color: black;
+	height: 20px;
+}
+#settle{
+	width: 1022px;
+	height: 50px;
+	margin: 10px 0 0 0;
+	background-color: #E5E5E5;
+}
+#settle-price{
+	width: 50px;
+	height: 50px;
+	float: right;
+	margin-right: 100px;
+	font-weight: 700;
+    font-size: 22px;
+    color: #f40;
+    line-height: 50px;
+    
+}
+#settle-submit{
+	width: 100px;
+	height: 50px;
+	text-decoration: none;
+	float: right;
+	background: #f40;
+    color: #FFF;
+    font-family: 'Lantinghei SC','Microsoft Yahei';
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+}

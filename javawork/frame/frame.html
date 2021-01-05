@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>buy.jsp</title>
-<link rel="stylesheet" type="text/css" href="../frame/frame.css"> 
-<style type="text/css">
-	#content-notfound{
-		height: 400px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-top: 1px solid black;
-	}
-	#tip{
-		font-size: 18px;
-		
-	}
-</style>
-</head>
-<body>
-	<div id="all-box">
+	<head>
+		<meta charset="UTF-8">
+		<title>cart</title>
+		<link rel="stylesheet" type="text/css" href="./frame.css"> 
+		<style type="text/css">
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="all-box">
 			<div id="top_user">
 				<div id="top_container">
 					<ul id="top_ul_left">
-						<li><em>喵~欢迎来到地猫</em></li>
+						<li><em>喵~欢迎来到天猫</em></li>
+						<li><a>请登录</a></li>
+						<li><a>免费注册</a></li>
 					</ul>
 					<ul class="top_ul">
-						<a href="/javawork/buy/allGoods.jsp"><li>全部商品</li>
+						<li>我的淘宝</li>
 						<li>购物车</li>
-						<li>购买商品清单</li>
+						<li>收藏夹</li>
 					</ul>
 					<ul class="top_ul">
 						<li>手机版</li>
@@ -39,17 +32,16 @@
 			</div>
 			<div id="header">
 				<div id="logo">
-					<a href="/javawork/index/index.jsp"><img src="../frame/img/logo.gif" /></a>
+					<img src="img/logo.gif" />
 				</div>
 				<div id="search_box">
-					<form action="/javawork/SearchServlet" method="get">
-						<input type="text" placeholder="搜索 地猫 商品/品牌/店铺" name="search" id="search"/>
+					<form>
+						<input type="text" value="搜索 天猫 商品/品牌/店铺" name="search" id="search"/>
 						<button type="submit" id="search_btn">搜索</button>
 					</form>
 				</div>
 			</div>
-			<div id="content-notfound">
-				<div id="tip">哎呀！找不到此商品,3s后跳转首页...</div>
+			<div id="content">
 			</div>
 			<div class="footer">
 				<div class="tmall_sure">
@@ -69,7 +61,7 @@
 							<td>支付宝充值</td>
 						</tr>
 						<tr>
-							<th>地猫保障</th>
+							<th>天猫保障</th>
 							<td>发票保障</td>
 							<td>售后规则</td>
 							<td>缺货赔付</td>
@@ -84,36 +76,22 @@
 						</tr>
 						<tr>
 							<th>商家服务</th>
-							<td>地猫规则</td>
+							<td>天猫规则</td>
 							<td>商家入驻</td>
 							<td>商家中心</td>
-							<td>地猫智库</td>
+							<td>天猫智库</td>
 							<td>物流服务</td>
 							<td>喵言喵语</td>
 							<td>运营服务</td>
 						</tr>
 						<tr>
-							<th>手机地猫</th>
-							<td><img src="../frame/img/code.png"></td>
+							<th>手机天猫</th>
+							<td><img src="img/code.png"></td>
 						</tr>
 					</table>
 				</div>
 				<div class="copyright"></div>
 			</div>
 		</div>
-
-</body>
-<script>
-		
-		var tip = document.getElementById("tip");
-		var i = 3;
-		var timer = setInterval(function(){
-			tip.innerHTML = "哎呀！找不到此商品" + i +"s后跳转首页...";
-			i--;
-			if(i == -1){
-				window.location.href="/javawork/index"
-			}
-		},600)
-		
-	</script>
+	</body>
 </html>
