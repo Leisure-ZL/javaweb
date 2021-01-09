@@ -95,6 +95,8 @@
   <servlet-mapping>
     <servlet-name>RemoveSGoodServlet</servlet-name>
     <url-pattern>/RemoveSGoodServlet</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> 
+  
+
   
 </web-app>

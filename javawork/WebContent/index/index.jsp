@@ -389,7 +389,7 @@
 								$("#len_box").show();
 								$("#len_box").html(result);
 								
-								// 点击模糊列表的值，必须在这里写，其他位置不起作用
+								// 点击模糊列表的值
 								$("li").unbind("click").bind("click", function(){
 									$("input[name=search]").val($(this).html());
 									$("input[name=search]").focus();

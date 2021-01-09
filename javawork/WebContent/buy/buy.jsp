@@ -59,14 +59,17 @@
 				if(session.getAttribute("searchSGood") != null){//如果是从SearchServlet来访问的，取session中对象从新赋给sGood
 					sGood = (SellGoods)session.getAttribute("searchSGood");
 					if(sGood.getName() == null){
-						response.sendRedirect("/javawork/buy-page/search-notfound.html");
+						response.sendRedirect("/javawork/buy/search-notfound.html");
 					}
 					
 				}else{//否则通过index传递参数访问，从数据库中取并加入session
 					String sql = "select * from sellgoods;";
 					List<SellGoods> sGoods = SellGoodsService.getAll(sql);
 					String indexStr = request.getParameter("index");
-					int index = Integer.parseInt(indexStr);
+					int index = 0;//默认值
+					if(indexStr != null){
+						index = Integer.parseInt(indexStr);
+					}
 					if(index < 0){			//判断是否是index为负数的三个商品(数据库中id=1,2,3)
 						sGood = sGoods.get(sGoods.size() - Math.abs(index));
 					}else{
