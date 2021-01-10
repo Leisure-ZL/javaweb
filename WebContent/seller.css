@@ -56,3 +56,9 @@
     font-size: 14px;
     font-weight: bolder;
 }
+.button
+{
+	float:left;
+	margin-left:440px;
+}
+

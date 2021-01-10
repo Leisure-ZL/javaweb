@@ -36,7 +36,17 @@ public class AddProductServlet extends HttpServlet {
 			throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
 		DiskFileItemFactory factory = new DiskFileItemFactory();
+		factory.setSizeThreshold(MEMORY_THRESHOLD);
+        // 设置临时存储目录
+        factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
 		ServletFileUpload upload = new ServletFileUpload(factory);
+		 // 设置最大文件上传值
+        upload.setFileSizeMax(MAX_FILE_SIZE);
+         
+        // 设置最大请求值 (包含文件和表单数据)
+        upload.setSizeMax(MAX_REQUEST_SIZE);
+     // 中文处理
+        upload.setHeaderEncoding("UTF-8"); 
 
 		List items = null;
 		
@@ -69,7 +79,7 @@ public class AddProductServlet extends HttpServlet {
 			    long size = item.getSize(); // 文件的大小，以字节为单位
 
 				String newFileName = new Date().getTime() + suffix;
-				String uploadPath = request.getServletContext().getRealPath("/") + File.separator +newFileName ;
+				String uploadPath = request.getServletContext().getRealPath("./")+File.separator +newFileName ;
 			   File saveFile = new File(uploadPath); // 定义一个file指向一个具体的文件
 			try {
 				

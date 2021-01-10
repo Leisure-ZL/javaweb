@@ -62,11 +62,9 @@
 					<div><a href="/seller/RemoveProductServlet?name=<%out.print(e.getProductname());%>&id=<%out.print(e.getId());%>">删除</a></div>
 				</div>
 				<% } %>
+				<div class="button"><a href="/seller/products.html">添加新品</a></div>
 				</div>
-				<div>
-				
-				</div>
-			</div>
+	</div>
 			<div class="footer">
 				<div class="tmall_sure">
 					<div class="tmall_sure_abox">
@@ -116,6 +114,5 @@
 				</div>
 				<div class="copyright"></div>
 			</div>
-		</div>
 </body>
 </html>

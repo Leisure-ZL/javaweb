@@ -57,7 +57,7 @@
 				var price=document.getElementById("price").value;
 				var num=document.getElementById("num").value;
 				var detail=document.getElementById("detail").value;
-	
+				var pic=document.getElementById("pic").value;
 			if (pname.length<1)
 				{					        
 					document.getElementsByTagName("span")[0].style.visibility="visible";
@@ -76,9 +76,15 @@
 			if (detail.length<1)
 			{
 				document.getElementsByTagName("span")[3].style.visibility="visible";
+				
+			}
+			if (pic=="")
+			{
+				document.getElementsByTagName("span")[5].style.visibility="visible";
 				return false
 			}
-		}
+			}
+		
 		function userReset1()
 		{
 			var pname=document.getElementById("pname").value;
@@ -99,9 +105,15 @@
 			var detail=document.getElementById("detail").value;
 			document.getElementsByTagName("span")[3].style.visibility="hidden";
 		}
+		function userReset5()
+		{
+			var pic=document.getElementById("pic").value;
+			document.getElementsByTagName("span")[5].style.visibility="hidden";
+		}
+		</script>
+		
+		
 	
-			
-	</script>
 	</head>
 	<body>
 		<div id="all-box">
@@ -137,7 +149,8 @@
 
 			</div>
 			<div id="content">
-				<div id="img"></div>
+				<div id="img">
+				</div>
 		<div id="inf">
 			  <form  onSubmit="return infCheck();" action="/seller/AddProductServlet" method="POST" enctype="multipart/form-data">
 				<div>
@@ -154,7 +167,8 @@
 				</div>
 				<div id="form_">
 					<span class="form_text">商品图片：</span>
-					<input type="file" name="uploadFile" />
+					<input type="file" name="uploadFile" id="pic" onClick="return userReset5();" />
+					<p><span class="tip">*图片不能为空!</span></p>
 				</div>
 				<div>
 				<input class="buttons" type="submit" value="发布">
